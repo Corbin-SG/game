@@ -7,6 +7,7 @@ var infoLabel = document.getElementById("label");
 
 infoButton.addEventListener("click", function() {
     document.body.style.backgroundImage ="url(infoScreen.png)";
+    document.body.style.border = "2vw solid #26153A"
     infoButton.hidden = true
     startButton.hidden = true
     infoText.hidden = false
@@ -17,6 +18,7 @@ infoButton.addEventListener("click", function() {
 
 backToMainButton.addEventListener("click", function(){
     document.body.style.backgroundImage = "url(startScreen.png)";
+    document.body.style.border = "none";
     infoButton.hidden = false
     startButton.hidden = false
     infoText.hidden = true
