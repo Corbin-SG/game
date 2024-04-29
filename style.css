@@ -35,7 +35,7 @@ body{
 }
 
 #information{
-    font-size: 30px;
+    font-size: 200%;
     font-family: 'Courier New', Courier, monospace;
     position: absolute;
     top: 50%;
