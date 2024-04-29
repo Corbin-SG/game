@@ -6,15 +6,19 @@ body{
 #background{
     background-image: url(startScreen.png);
     background-repeat: no-repeat;
-    background-size: 100%, 100%;
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover;
+    background-size: cover;
+    scroll-behavior: smooth;
     margin: 0px;
-    width: 100vw;
-    height: 100vh;
+    max-width: 100vw;
+    min-height: 100vh;
     overflow: hidden;
 }
 
 #start{
-    font-size: 40px;
+    font-size: 3vw;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -25,7 +29,7 @@ body{
 }
 
 #info{
-    font-size: 40px;
+    font-size: 3vw;
     position:absolute;
     top:70%;
     left: 50%;
@@ -35,7 +39,7 @@ body{
 }
 
 #information{
-    font-size: 200%;
+    font-size: 2vw;
     font-family: 'Courier New', Courier, monospace;
     position: absolute;
     top: 50%;
@@ -67,15 +71,3 @@ button:hover{
     color:#541132;
     padding: 2%;
 }
-
-@media only screen and (max-width: 300px) {
-    #information {
-        font-size: 100%;
-    }
-    #start{
-        font-size: 20px;
-    }
-    #info{
-        font-size: 20px;
-    }
-  }
