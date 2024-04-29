@@ -24,6 +24,16 @@ body{
     
 }
 
+#info{
+    font-size: 40px;
+    position:absolute;
+    top:70%;
+    left: 50%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 75%;
+}
+
 .button{
     border:5px solid #311255;
     background-color: #C5A8E7;
