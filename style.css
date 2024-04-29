@@ -8,7 +8,7 @@ body{
     background-repeat: no-repeat;
     background-size: 100vw, 100vh;
     margin: 0px;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
 }
@@ -67,3 +67,15 @@ button:hover{
     color:#541132;
     padding: 2%;
 }
+
+@media only screen and (max-width: 300px) {
+    #information {
+        font-size: 100%;
+    }
+    #start{
+        font-size: 20px;
+    }
+    #info{
+        font-size: 20px;
+    }
+  }
