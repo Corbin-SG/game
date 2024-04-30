@@ -30,7 +30,7 @@ body{
 }
 
 #information{
-    font-size: 3vw;
+    font-size: 2vw;
     font-family: 'Courier New', Courier, monospace;
     position: absolute;
     top: 50%;
@@ -53,7 +53,7 @@ body{
 #backToMain{
     font-size: 2vw;
     position:absolute;
-    top: 85%;
+    top: 90%;
     left: 20%;
     -ms-transform: (translate(-50%, -50%));
     transform: translate(-50%, -50%);
@@ -63,23 +63,67 @@ body{
 #howTo{
     font-size: 2vw;
     position:absolute;
-    top: 85%;
+    top: 90%;
     left: 80%;
     -ms-transform: (translate(-50%, -50%));
     transform: translate(-50%, -50%);
     width: 30%;
 }
 
+#easy{
+    font-size: 2vw;
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 75%;
+}
+
+#regular{
+    font-size: 2vw;
+    position: absolute;
+    top: 40%;
+    left: 38%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 75%;
+}
+
+#hard{
+    font-size: 2vw;
+    position: absolute;
+    top: 40%;
+    left: 61%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 75%;
+}
+
+#insane{
+    font-size: 2vw;
+    position: absolute;
+    top: 40%;
+    left: 84%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 75%;
+}
+
 .button{
     border:5px solid #311255;
     background-color: #C5A8E7;
     color: #311255;
-    padding: 2%;
+    padding: 1%;
 }
 
 button:hover{
     border: 5px solid #541132;
     background-color: #E8A9C8;
     color:#541132;
-    padding: 2%;
+    padding: 1%;
 }
