@@ -6,12 +6,12 @@ var easyButton = document.getElementById("easy");
 var regularButton = document.getElementById("regular");
 var hardButton = document.getElementById("hard");
 var insaneButton = document.getElementById("insane");
+var storyButton = document.getElementById("story");
 var infoText = document.getElementById("information");
 var infoLabel = document.getElementById("label");
 
 infoButton.addEventListener("click", function() {
-    document.body.style.backgroundImage ="url(grayScreen.png)";
-    document.body.style.border = "2vw solid #26153A"
+    document.body.style.backgroundImage ="url(notebookScreen.png)";
     infoButton.hidden = true
     startButton.hidden = true
     infoText.hidden = false
@@ -33,10 +33,11 @@ backToMainButton.addEventListener("click", function(){
     regularButton.hidden = true
     hardButton.hidden = true
     insaneButton.hidden = true
+    storyButton.hidden = true
 })
 
 startButton.addEventListener("click", function(){
-    document.body.style.backgroundImage = "url(startScreen.png)";
+    document.body.style.backgroundImage = "url(notebookScreen.png)";
     infoButton.hidden = true
     startButton.hidden = true
     backToMainButton.hidden = false
@@ -44,4 +45,5 @@ startButton.addEventListener("click", function(){
     regularButton.hidden = false
     hardButton.hidden = false
     insaneButton.hidden = false
+    storyButton.hidden = false
 })

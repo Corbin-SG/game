@@ -114,16 +114,26 @@ body{
     height: 75%;
 }
 
+#story{
+    font-size: 2vw;
+    position: absolute;
+    top: 90%;
+    left: 70%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
 .button{
     border:5px solid #311255;
-    background-color: #C5A8E7;
+    background-color: #c5a8e7a5;
     color: #311255;
     padding: 1%;
 }
 
 button:hover{
     border: 5px solid #541132;
-    background-color: #E8A9C8;
+    background-color: #e8a9c8bf;
     color:#541132;
     padding: 1%;
 }
