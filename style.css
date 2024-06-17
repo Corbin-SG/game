@@ -1,5 +1,5 @@
 body{
-    background-image: url(startScreen.png);
+    background-image: url(Backgrounds/startScreen.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     margin: 0px;
@@ -51,6 +51,16 @@ body{
 }
 
 #backToMain{
+    font-size: 2vw;
+    position:absolute;
+    top: 90%;
+    left: 20%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 30%;
+}
+
+#backToDifficulty{
     font-size: 2vw;
     position:absolute;
     top: 90%;
@@ -137,3 +147,56 @@ button:hover{
     color:#541132;
     padding: 1%;
 }
+
+#ren{
+    font-size: 2vw;
+    position: absolute;
+    top: 40%;
+    left: 15%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 75%;
+}
+
+#luka{
+    font-size: 2vw;
+    position: absolute;
+    top: 40%;
+    left: 38%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 75%;
+}
+
+#ollie{
+    font-size: 2vw;
+    position: absolute;
+    top: 40%;
+    left: 61%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 75%;
+}
+
+#caidyn{
+    font-size: 2vw;
+    position: absolute;
+    top: 40%;
+    left: 84%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 75%;
+}
+
+.box{
+    position: absolute;
+    width: 15vw;
+    height: 15vw;
+    border: 0.5vh solid black;
+    top: 5%;
+    left: 42%;
+    }
