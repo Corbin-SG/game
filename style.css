@@ -192,11 +192,46 @@ button:hover{
     height: 75%;
 }
 
-.box{
+#display{
     position: absolute;
-    width: 15vw;
-    height: 15vw;
-    border: 0.5vh solid black;
-    top: 5%;
-    left: 42%;
-    }
+    width: 25vw;
+    height: 25vw;
+    top: 30%;
+    left: 50%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+}
+
+#abilityHead{
+    position: absolute;
+    font-family: 'Luminari', fantasy, 'Courier New', Courier, monospace;
+    font-size: 4vh;
+    left: 50%;
+    top: 55%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+
+}
+
+.ability{
+    font-family: 'Luminari', fantasy, 'Courier New', Courier, monospace;
+    font-size: 3vh;
+}
+
+#attack{
+    position: absolute;
+    font-family: 'Luminari', fantasy, 'Courier New', Courier, monospace;
+    left: 25%;
+    top: 65%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+}
+
+#special{
+    position: absolute;
+    font-family: 'Luminari', fantasy, 'Courier New', Courier, monospace;
+    left: 75%;
+    top: 65%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+}

@@ -1,3 +1,4 @@
+//Variables
 var infoButton = document.getElementById("info");
 var startButton = document.getElementById("start");
 var backToMainButton = document.getElementById("backToMain");
@@ -14,6 +15,8 @@ var ollieButton = document.getElementById("ollie");
 var caidynButton = document.getElementById("caidyn");
 var infoText = document.getElementById("information");
 var infoLabel = document.getElementById("label");
+var displaySprite = document.getElementById("display");
+let charName = "N/A";
 
 infoButton.addEventListener("click", function() {
     document.body.style.backgroundImage ="url(Backgrounds/notebookScreen.png)";
@@ -85,10 +88,19 @@ backToDifficultyButton.addEventListener("click", function(){
 })
 
 renButton.addEventListener("click", function(){
+    //Change screen
+    toCharConfirm();
+    //Set character
+    charName = "Ren";
+    display.src = "Sprites/Ren/renSelect.png";
+})
+
+function toCharConfirm(){
     document.body.style.backgroundImage = "url(Backgrounds/thirdNotebookScreen.png";
     backToDifficultyButton.hidden = true
     renButton.hidden = true
     lukaButton.hidden = true
     ollieButton.hidden = true
     caidynButton.hidden = true
-})
+    display.hidden = false
+}
