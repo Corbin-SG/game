@@ -70,6 +70,16 @@ body{
     width: 30%;
 }
 
+#backToChar{
+    font-size: 2vw;
+    position:absolute;
+    top: 90%;
+    left: 20%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 30%;
+}
+
 #howTo{
     font-size: 2vw;
     position:absolute;
@@ -192,6 +202,16 @@ button:hover{
     height: 75%;
 }
 
+#confirmChar{
+    font-size: 2vw;
+    position: absolute;
+    top: 90%;
+    left: 70%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
 #display{
     position: absolute;
     width: 25vw;
@@ -204,6 +224,7 @@ button:hover{
 
 #abilityHead{
     position: absolute;
+    color: #311255;
     font-family: 'Luminari', fantasy, 'Courier New', Courier, monospace;
     font-size: 4vh;
     left: 50%;
@@ -216,6 +237,9 @@ button:hover{
 .ability{
     font-family: 'Luminari', fantasy, 'Courier New', Courier, monospace;
     font-size: 3vh;
+    background-color: #c5a8e7a5;
+    border:5px solid #311255;
+    padding: 0.5%;
 }
 
 #attack{
@@ -234,4 +258,19 @@ button:hover{
     top: 65%;
     -ms-transform: (translate(-50%, -50%));
     transform: translate(-50%, -50%);
+}
+
+#iconLabel{
+    position: absolute;
+    top: 2%;
+    left: 20%;
+    height: 40%;
+    width: 60%;
+    font-size: 9vw;
+}
+
+#mapIcon{
+    position: absolute;
+    height: 11vw;
+    width: 11vw;
 }
