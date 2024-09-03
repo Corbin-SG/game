@@ -262,11 +262,6 @@ button:hover{
 
 #iconLabel{
     position: absolute;
-    top: 2%;
-    left: 20%;
-    height: 40%;
-    width: 60%;
-    font-size: 9vw;
 }
 
 #mapIcon{

@@ -25,6 +25,8 @@ var specialDesc = document.getElementById("special");
 var mapIcon = document.getElementById("mapIcon");
 let charName = "N/A";
 let difficulty = "N/A";
+let eventType = "N/A";
+let num = 0;
 
 //Game Variables
 var health = 0;
@@ -47,6 +49,81 @@ const easy = [
     [70, 78.5], 
     [70, 90]
 ];
+const regular = [
+    [70, 0.5],
+    [60, 11.5],
+    [75, 20.5],
+    [64, 31.5],
+    [45, 28.5],
+    [38, 40.5],
+    [53, 48.5],
+    [45, 57.5],
+    [27, 56.5],
+    [13, 66],
+    [23, 76.5],
+    [10, 86.25],
+    [0, 81]
+];
+const hard = [
+    [73, 0.5],
+    [60, 9],
+    [47, 0.75],
+    [34, 8.5],
+    [20, 0.25],
+    [12, 10],
+    [-3, 2.5],
+    [-5, 16.5],
+    [-5.5, 28.5],
+    [2, 40.75],
+    [-6, 53],
+    [6, 61],
+    [-5, 70.5],
+    [1.5, 84.5],
+    [17, 76.75],
+    [30, 68],
+    [35, 79],
+    [45, 88.5],
+    [56, 81.25],
+    [74, 86.25],
+    [73, 73],
+    [56, 66],
+    [70, 58],
+    [75, 44]
+];
+
+const insane = [
+    [75, -0.75],
+    [75, 7.25],
+    [75, 15.5],
+    [75, 23.5],
+    [75, 32],
+    [75, 40.75],
+    [62, 35.75],
+    [50, 41],
+    [61, 46.25],
+    [47, 51.25],
+    [35, 43.75],
+    [29, 53],
+    [20, 45.25],
+    [5, 39],
+    [-6, 43.75],
+    [-6, 53.5],
+    [7, 49.75],
+    [15, 57.25],
+    [33, 62.25],
+    [33, 71],
+    [22, 75.25],
+    [13, 69.75],
+    [2, 61.25],
+    [-6, 69.5],
+    [4, 77.75],
+    [-3, 86.5],
+    [12, 87],
+    [28, 87.5],
+    [44, 88],
+    [60, 88],
+    [75, 88]
+]
 
 infoButton.addEventListener("click", function() {
     hideStart();
@@ -66,9 +143,15 @@ startButton.addEventListener("click", function(){
 easyButton.addEventListener("click", function(){
     showChar();
     hideDiff();
+    //Set difficulty
     difficulty = "Easy";
+    //Set move button
     moveButton.style.left = "20%";
     moveButton.style.top = "2%";
+    moveButton.style.height = "40%";
+    moveButton.style.width = "60%";
+    moveButton.style.fontSize = "9vw";
+    //Set position
     maxSpot = 8;
     posArray = easy;
     mapIcon.style.top = posArray[0][0] + "vh";
@@ -79,19 +162,56 @@ easyButton.addEventListener("click", function(){
 regularButton.addEventListener("click", function(){
     showChar();
     hideDiff();
+    //Set difficulty
     difficulty = "Regular";
+    //Set move button
+    moveButton.style.left = "2%";
+    moveButton.style.top = "2%";
+    moveButton.style.height = "35%";
+    moveButton.style.width = "50%";
+    moveButton.style.fontSize = "7vw";
+    //Set position
+    maxSpot = 13;
+    posArray = regular;
+    mapIcon.style.top = posArray[0][0] + "vh";
+    mapIcon.style.left = posArray[0][1] + "vw";
+
 })
 
 hardButton.addEventListener("click", function(){
     showChar();
     hideDiff();
+    //Set difficulty
     difficulty = "Hard";
+    //Set move button
+    moveButton.style.left = "14%";
+    moveButton.style.top = "87%";
+    moveButton.style.width = "30%";
+    moveButton.style.height = "10%";
+    moveButton.style.fontSize = "3vw";
+    //Set position
+    maxSpot = 24;
+    posArray = hard;
+    mapIcon.style.top = posArray[0][0] + "vh";
+    mapIcon.style.left = posArray[0][1] + "vw";
 })
 
 insaneButton.addEventListener("click", function(){
     showChar();
     hideDiff();
+    //Set difficulty
     difficulty = "Insane";
+    //Set move button
+    moveButton.style.left = "1%";
+    moveButton.style.top = "50%";
+    moveButton.style.width = "35%";
+    moveButton.style.height = "25%";
+    moveButton.style.fontSize = "5vw";
+    //Set position
+    maxSpot = 31;
+    posArray = insane;
+    mapIcon.style.top = posArray[0][0] + "vh";
+    mapIcon.style.left = posArray[0][1] + "vw";
 })
 
 backToDifficultyButton.addEventListener("click", function(){
@@ -269,8 +389,87 @@ function showMap(){
     mapIcon.hidden = false;
 }
 
+function hideMap(){
+    //Hides the move button and the map icon
+    moveButton.hidden = true;
+    mapIcon.hidden = true;
+}
+
 function movePosition(){
     x++;
     mapIcon.style.top = posArray[x][0] + "vh";
     mapIcon.style.left = posArray[x][1] + "vw";
+}
+
+//Generates a random number then calls a function that decides event
+function decideEvent(){
+    //Generates number from 1-100
+    num = Math.floor(Math.random() * 100) + 1;
+
+    //Calls appropriate function
+    if (difficulty == "Easy"){
+        easyBattleOrEvent();
+    }
+    else if (difficulty == "Regular"){
+        regularBattleOrEvent();
+    }
+    else if (difficulty == "Hard"){
+        hardBattleOrEvent();
+    }
+    else if (difficulty == "Insane"){
+        insaneBattleOrEvent();
+    }
+
+}
+
+function easyBattleOrEvent(){
+    //If number generated was less than or equal to 50
+    if (num <= 50){
+        //Event is a battle
+        eventType = "Battle";
+    }
+    //If number generated was more than 50
+    else{
+        //Event is a special event
+        eventType = "Special";
+    }
+}
+
+function regularBattleOrEvent(){
+    //If number generated was less than or equal to 60
+    if (num <= 60){
+        //Event is a battle
+        eventType = "Battle";
+    }
+    //If number generated was more than 60
+    else{
+        //Event is a special event
+        eventType = "Special";
+    }
+}
+
+function hardBattleOrEvent(){
+    //If number generated was less than or equal to 70
+    if (num <= 70){
+        //Event is a battle
+        eventType = "Battle";
+    }
+    //If number generated was more than 70
+    else{
+        //Event is a special event
+        eventType = "Special";
+    }
+}
+
+function insaneBattleOrEvent(){
+    //If number generated was less than or equal to 85
+    if (num <= 85){
+        //Event is a battle
+        eventType = "Battle";
+    }
+    //If number generated was more than 85
+    else{
+        //Event is a special event
+        eventType = "Special";
+    }
 }
