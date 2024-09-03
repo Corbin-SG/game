@@ -26,6 +26,7 @@ var mapIcon = document.getElementById("mapIcon");
 let charName = "N/A";
 let difficulty = "N/A";
 let eventType = "N/A";
+let battleEnemy = "N/A";
 let num = 0;
 
 //Game Variables
@@ -420,6 +421,30 @@ function decideEvent(){
         insaneBattleOrEvent();
     }
 
+    //Generates new number from 1-100
+    num = Math.floor(Math.random() * 100) + 1;
+
+    //If event is a battle
+    if (eventType == "Battle"){
+        //Calls appropriate function
+        if (difficulty == "Easy"){
+            easyBattleEnemy();
+        }
+        else if (difficulty == "Regular"){
+            regularBattleEnemy();
+        }
+        else if (difficulty == "Hard"){
+            hardBattleEnemy();
+        }
+        else if (difficulty == "Insane"){
+            insaneBattleEnemy();
+        }
+    }
+    //If event is a special event
+    else if (eventType == "Special"){
+
+    }
+
 }
 
 function easyBattleOrEvent(){
@@ -472,4 +497,34 @@ function insaneBattleOrEvent(){
         //Event is a special event
         eventType = "Special";
     }
+}
+
+function easyBattleEnemy(){
+    //If number generated was less than or equal to 25
+    if (num <= 25){
+        //Enemy is slime
+        battleEnemy = "Slime";
+    }
+    //If number generated was more than 25 and less than or equal to 45
+    else if (num > 25 && num <= 45){
+        //Enemy is Dark Matter
+        battleEnemy = "Dark Matter";
+    }
+    //If number generated was more than 45 and less than or equal to 60
+    else if (num > 45 && num <= 60){
+        //Enemy is Crab
+        battleEnemy = "Crab";
+    }
+}
+
+function regularBattleEnemy(){
+
+}
+
+function hardBattleEnemy(){
+
+}
+
+function insaneBattleEnemy(){
+
 }
