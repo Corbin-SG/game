@@ -46,6 +46,7 @@ let changeEnergy = 0;
 let changeSpace = 0;
 let maxNum = 0.0;
 let minNum = 0.0;
+let debuffValue = 0;
 
 //Character stats
 let renHP = 100;
@@ -68,7 +69,6 @@ var maxSpot = 1.0;
 //Space Positions
 var x = 0;
 var posArray = [];
-var currentPos = 0;
 const easy = [
     [70, 0.5], 
     [70, 13.5], 
@@ -330,8 +330,6 @@ moveButton.addEventListener("click", function(){
 })
 
 nextButton.addEventListener("click", function(){
-    //Carries out randomized event
-    processEvent();
     //Changes screen
     hideEventDesc();
     showMap();
@@ -573,6 +571,8 @@ function decideEvent(){
                 eventName = "Restless Night";
                 //Setting event title
                 eventTitle.innerHTML = "Restless Night";
+                //Processing event
+                restlessNight();
                 //Setting event description
                 eventDetails.innerHTML = "Each character's energy decreased by: " + changeEnergy;
             }
@@ -582,6 +582,8 @@ function decideEvent(){
                 eventName = "Night Attack";
                 //Setting event title
                 eventTitle.innerHTML = "Night Attack";
+                //Processing event
+                nightAttack();
                 //Setting event description
                 eventDetails.innerHTML = "Each character's ATK decreased by: " + changeATK;
             }
@@ -591,8 +593,10 @@ function decideEvent(){
                 eventName = "Debuff";
                 //Setting event title
                 eventTitle.innerHTML = "Debuff";
+                //Processing event
+                debuffEvent();
                 //setting event description
-                eventDetails.innerHTML = "Each characters max " + energyOrHP + " decreased by: " + changeDEF;
+                eventDetails.innerHTML = "Each characters max " + energyOrHP + " decreased by: " + debuffValue;
             }
             //If number generated was more than 75
             else if (num > 75){
@@ -600,6 +604,8 @@ function decideEvent(){
                 eventName = "Chase Away";
                 //Setting event title
                 eventTitle.innerHTML = "Chase Away";
+                //Processing event
+                chaseAway();
                 //Setting event description
                 eventDetails.innerHTML = "Chased you back " + changeSpace + " spaces";
             }
@@ -612,6 +618,8 @@ function decideEvent(){
                 eventName = "ATK Bonus";
                 //Setting event title
                 eventTitle.innerHTML = "ATK Bonus";
+                //Processing event
+                atkBonus();
                 //Setting event description
                 eventDetails.innerHTML = "Each character's ATK increased by: " + changeATK;
             }
@@ -621,6 +629,8 @@ function decideEvent(){
                 eventName = "DEF Bonus";
                 //Setting event title
                 eventTitle.innerHTML = "DEF Bonus";
+                //Processing event
+                defBonus();
                 //Setting event description
                 eventDetails.innerHTML = "Each character's DEF increased by: " + changeDEF;
             }
@@ -630,6 +640,8 @@ function decideEvent(){
                 eventName = "Health Bonus";
                 //Setting event title
                 eventTitle.innerHTML = "Health Bonus";
+                //Processing event
+                healthBonus();
                 //Setting event description
                 eventDetails.innerHTML = "Each character's max HP increased by: " + changeHP;
             }
@@ -639,6 +651,8 @@ function decideEvent(){
                 eventName = "Energy Bonus";
                 //Setting event title
                 eventTitle.innerHTML = "Energy Bonus";
+                //Processing event
+                energyBonus();
                 //Setting event description
                 eventDetails.innerHTML = "Each character's max energy increased by: " + changeEnergy;
            } 
@@ -648,6 +662,8 @@ function decideEvent(){
                 eventName = "Rest Day";
                 //Setting event title
                 eventTitle.innerHTML = "Rest Day";
+                //Processing event
+                restDay();
                 //Setting event description
                 eventDetails.innerHTML = "Each character restored to max HP and energy";
            }
@@ -837,48 +853,6 @@ function insaneBattleEnemy(){
     else if (num > 50){
         //Enemy is Fire Cat
         battleEnemy = "Fire Cat";
-    }
-}
-
-function processEvent(){
-    //If event is a special event
-    if (eventType = "Special"){
-        //If event is ATK Bonus
-        if (eventName = "ATK Bonus"){
-            atkBonus();
-        }
-        //If event is DEF Bonus
-        else if (eventName == "DEF Bonus"){
-            defBonus();
-        }
-        //If event is HP Bonus
-        else if (eventName == "Health Bonus"){
-            healthBonus();
-        }
-        //If event is Energy Bonus
-        else if (eventName == "Energy Bonus"){
-            energyBonus();
-        }
-        //If event is Rest Day
-        else if (eventName == "Rest Day"){
-            restDay();
-        }
-        //If event is Restless Night
-        else if (eventName == "Restless Night"){
-            restlessNight();
-        }
-        //If event is Night Attack
-        else if (eventName == "Night Attack"){
-            nightAttack();
-        }
-        //If event is Debuff
-        else if (eventName == "Debuff"){
-
-        }
-        //If event is Chase Away
-        else if (eventName == "Chase Away"){
-
-        }
     }
 }
 
@@ -1076,4 +1050,81 @@ function nightAttack(){
     lukaHP -= changeHP;
     ollieHP -= changeHP;
     caidynHP -= changeHP;
+}
+
+function debuffEvent(){
+    //If difficulty is easy
+    if (difficulty == "Easy"){
+        minNum = 1;
+        maxNum = 5;
+    }
+    //If difficulty is regular
+    else if (difficulty == "Regular"){
+        minNum = 5;
+        maxNum = 10;
+    }
+    //If difficulty is hard
+    else if (difficulty == "Hard"){
+        minNum = 15;
+        maxNum = 20;
+    }
+    //If difficulty is insane
+    else if (difficulty == "Insane"){
+        minNum = 25;
+        maxNum = 30;
+    }
+
+    //Generates random nunmber (1 or 2)
+    num = Math.floor(Math.random() * (2 - 1 + 1) ) + 1;
+
+    //If number is 1
+    if (num == 1){
+        //Debuff HP
+        energyOrHP = "HP";
+        //Generates random number between max and min
+        debuffValue = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
+
+        //Changes max HP
+        maxHealth -= debuffValue;
+    }
+    //If number is 2
+    if (num == 2){
+        //Debuff energy
+        energyOrHP = "Energy";
+        //Generates random number between max and min
+        debuffValue = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
+
+        //Changes max energy multiplier
+        maxEnergy -= debuffValue;
+    }
+}
+
+function chaseAway(){
+    //If difficulty is easy
+    if (difficulty == "Easy"){
+        minNum = 1;
+        maxNum = 2;
+    }
+    //If difficulty is regular
+    else if (difficulty == "Regular"){
+        minNum = 3;
+        maxNum = 4;
+    }
+    //If difficulty is hard
+    else if (difficulty == "Hard"){
+        minNum = 4;
+        maxNum = 6;
+    }
+    //If difficulty is insane
+    else if (difficulty == "Insane"){
+        minNum = 6;
+        maxNum = 10;
+    }
+
+    //Generates random number between max and min
+    changeSpace = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
+
+    x -= changeSpace;
+    mapIcon.style.top = posArray[x][0] + "vh";
+    mapIcon.style.left = posArray[x][1] + "vw";
 }
