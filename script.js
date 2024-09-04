@@ -44,13 +44,26 @@ let changeDEF = 0;
 let changeHP = 0;
 let changeEnergy = 0;
 let changeSpace = 0;
+let maxNum = 0.0;
+let minNum = 0.0;
+
+//Character stats
+let renHP = 100;
+let renEnergy = 100;
+let lukaHP = 100;
+let lukaEnergy = 100;
+let ollieHP = 100;
+let ollieEnergy = 100;
+let caidynHP = 100;
+let caidynEnergy = 100;
 
 //Game Variables
-var health = 0;
-var attackMul = 1;
-var defenceMul = 1;
-var playerSpot = 1;
-var maxSpot = 1;
+var maxHealth = 100;
+var maxEnergy = 100;
+var attackMul = 1.0;
+var defenceMul = 1.0;
+var playerSpot = 1.0;
+var maxSpot = 1.0;
 
 //Space Positions
 var x = 0;
@@ -828,5 +841,239 @@ function insaneBattleEnemy(){
 }
 
 function processEvent(){
+    //If event is a special event
+    if (eventType = "Special"){
+        //If event is ATK Bonus
+        if (eventName = "ATK Bonus"){
+            atkBonus();
+        }
+        //If event is DEF Bonus
+        else if (eventName == "DEF Bonus"){
+            defBonus();
+        }
+        //If event is HP Bonus
+        else if (eventName == "Health Bonus"){
+            healthBonus();
+        }
+        //If event is Energy Bonus
+        else if (eventName == "Energy Bonus"){
+            energyBonus();
+        }
+        //If event is Rest Day
+        else if (eventName == "Rest Day"){
+            restDay();
+        }
+        //If event is Restless Night
+        else if (eventName == "Restless Night"){
+            restlessNight();
+        }
+        //If event is Night Attack
+        else if (eventName == "Night Attack"){
+            nightAttack();
+        }
+        //If event is Debuff
+        else if (eventName == "Debuff"){
 
+        }
+        //If event is Chase Away
+        else if (eventName == "Chase Away"){
+
+        }
+    }
+}
+
+function atkBonus(){
+    //If difficulty is easy
+    if (difficulty == "Easy"){
+        minNum = 1.501;
+        maxNum = 2.01;
+    }
+    //If difficulty is regular
+    else if (difficulty == "Regular"){
+        minNum = 0.751;
+        maxNum = 1.001;
+    }
+    //If difficulty is hard
+    else if (difficulty == "Hard"){
+        minNum = 0.31;
+        maxNum = 0.51;
+    }
+    //If difficulty is insane
+    else if (difficulty == "Insane"){
+        minNum = 0.11;
+        maxNum = 0.251;
+    }
+
+    //Generates random number between max and min
+    changeATK = Math.random() * (maxNum - minNum) + minNum;
+    //Rounds number to 2 decimal places
+    changeATK = Math.round(changeATK * 100) / 100; 
+
+    //Changes ATK multiplier
+    attackMul += changeATK;
+}
+
+function defBonus(){
+    //If difficulty is easy
+    if (difficulty == "Easy"){
+        minNum = 1.51;
+        maxNum = 2.01;
+    }
+    //If difficulty is regular
+    else if (difficulty == "Regular"){
+        minNum = 0.751;
+        maxNum = 1.01;
+    }
+    //If difficulty is hard
+    else if (difficulty == "Hard"){
+        minNum = 0.31;
+        maxNum = 0.51;
+    }
+    //If difficulty is insane
+    else if (difficulty == "Insane"){
+        minNum = 0.11;
+        maxNum = 0.251;
+    }
+
+    //Generates random number between max and min
+    changeDEF = Math.random() * (maxNum - minNum) + minNum;
+    //Rounds number to 2 decimal places
+    changeDEF = Math.round(changeDEF * 100) / 100; 
+
+    //Changes DEF multiplier
+    defenceMul += changeDEF;
+}
+
+function healthBonus(){
+    //If difficulty is easy
+    if (difficulty == "Easy"){
+        minNum = 30;
+        maxNum = 40;
+    }
+    //If difficulty is regular
+    else if (difficulty == "Regular"){
+        minNum = 20;
+        maxNum = 25;
+    }
+    //If difficulty is hard
+    else if (difficulty == "Hard"){
+        minNum = 10;
+        maxNum = 15;
+    }
+    //If difficulty is insane
+    else if (difficulty == "Insane"){
+        minNum = 5;
+        maxNum = 10;
+    }
+
+    //Generates random number between max and min
+    changeHP = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
+
+    //Changes max HP
+    maxHealth += changeHP;
+}
+
+function energyBonus(){
+     //If difficulty is easy
+     if (difficulty == "Easy"){
+        minNum = 30;
+        maxNum = 40;
+    }
+    //If difficulty is regular
+    else if (difficulty == "Regular"){
+        minNum = 20;
+        maxNum = 25;
+    }
+    //If difficulty is hard
+    else if (difficulty == "Hard"){
+        minNum = 10;
+        maxNum = 15;
+    }
+    //If difficulty is insane
+    else if (difficulty == "Insane"){
+        minNum = 5;
+        maxNum = 10;
+    }
+
+    //Generates random number between max and min
+    changeEnergy = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
+
+    //Changes max energy multiplier
+    maxEnergy += changeEnergy;
+}
+
+function restDay(){
+    //Sets characters' HP and Energy to max value
+    renHP = maxHealth;
+    renEnergy = maxEnergy;
+    lukaHP = maxHealth;
+    lukaEnergy = maxEnergy;
+    ollieHP = maxHealth;
+    ollieEnergy = maxEnergy;
+    caidynHP = maxHealth;
+    caidynEnergy = maxEnergy;
+}
+
+function restlessNight(){
+    //If difficulty is easy
+    if (difficulty == "Easy"){
+        minNum = 1;
+        maxNum = 5;
+    }
+    //If difficulty is regular
+    else if (difficulty == "Regular"){
+        minNum = 5;
+        maxNum = 10;
+    }
+    //If difficulty is hard
+    else if (difficulty == "Hard"){
+        minNum = 15;
+        maxNum = 20;
+    }
+    //If difficulty is insane
+    else if (difficulty == "Insane"){
+        minNum = 25;
+        maxNum = 30;
+    }
+
+    //Generates random number between max and min
+    changeEnergy = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
+
+    //Changes energy levels
+    renEnergy -= changeEnergy;
+    lukaEnergy -= changeEnergy;
+    ollieEnergy -= changeEnergy;
+    caidynEnergy -= changeEnergy;
+}
+
+function nightAttack(){
+    //If difficulty is easy
+    if (difficulty == "Easy"){
+        minNum = 1;
+        maxNum = 5;
+    }
+    //If difficulty is regular
+    else if (difficulty == "Regular"){
+        minNum = 5;
+        maxNum = 10;
+    }
+    //If difficulty is hard
+    else if (difficulty == "Hard"){
+        minNum = 15;
+        maxNum = 20;
+    }
+    //If difficulty is insane
+    else if (difficulty == "Insane"){
+        minNum = 25;
+        maxNum = 30;
+    }
+
+    //Generates random number between max and min
+    changeHP = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
+
+    //Changes characters' health
+    renHP -= changeHP;
+    lukaHP -= changeHP;
+    ollieHP -= changeHP;
+    caidynHP -= changeHP;
 }
