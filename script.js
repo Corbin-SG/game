@@ -24,6 +24,8 @@ var attackDesc = document.getElementById("attack");
 var specialDesc = document.getElementById("special");
 var mapIcon = document.getElementById("mapIcon");
 var eventTitle = document.getElementById("eventTitle");
+var enemyIcon = document.getElementById("enemyIcon");
+var nextButton = document.getElementById("nextButton");
 let charName = "N/A";
 let difficulty = "N/A";
 let eventType = "N/A";
@@ -304,6 +306,14 @@ moveButton.addEventListener("click", function(){
     showEventDesc();
 })
 
+nextButton.addEventListener("click", function(){
+    //Carries out randomized event
+    processEvent();
+    //Changes screen
+    hideEventDesc();
+    showMap();
+})
+
 function showCharConfirm(){
     document.body.style.backgroundImage = "url(Backgrounds/thirdNotebookScreen.png";
     display.hidden = false
@@ -421,6 +431,15 @@ function showEventDesc(){
 
     //Unhides event title
     eventTitle.hidden = false;
+    enemyIcon.hidden = false;
+    nextButton.hidden = false;
+}
+
+function hideEventDesc(){
+    //Hides event description items
+    eventTitle.hidden = true;
+    enemyIcon.hidden = true;
+    nextButton.hidden = true;
 }
 
 function movePosition(){
@@ -471,26 +490,38 @@ function decideEvent(){
         if (battleEnemy == "Slime"){
             //Setting event title
             eventTitle.innerHTML = "<big>BATTLE:</big> Slime";
+            //Setting enemy icon
+            enemyIcon.src = "Sprites/Slime/slimeStandby.png";
         }
         else if (battleEnemy == "Crab"){
             //Setting event title
             eventTitle.innerHTML = "<big>BATTLE:</big> Crab";
+            //Setting enemy icon
+            enemyIcon.src = "Sprites/Crab/crabStandby.png";
         }
         else if (battleEnemy == "Dark Matter"){
             //Setting event title
             eventTitle.innerHTML = "<big>BATTLE:</big> Dark Matter";
+             //Setting enemy icon
+            enemyIcon.src = "Sprites/DarkMatter/darkMatterStandby.png";
         }
         else if (battleEnemy == "Drone"){
             //Setting event title
             eventTitle.innerHTML = "<big>BATTLE:</big> Drone";
+             //Setting enemy icon
+            enemyIcon.src = "Sprites/Drone/droneStandby.png";
         }
         else if (battleEnemy == "Snow Monster"){
             //Setting event title
             eventTitle.innerHTML = "<big>BATTLE:</big> Snow Monster";
+             //Setting enemy icon
+            enemyIcon.src = "Sprites/SnowMonster/snowMonsterStandby.png";
         }
         else if (battleEnemy == "Fire Cat"){
             //Setting event title
             eventTitle.innerHTML = "<big>BATTLE:</big> Fire Cat";
+             //Setting enemy icon
+            enemyIcon.src = "Sprites/FireCat/fireCatStandby.png";
         }
 
     }
@@ -759,4 +790,8 @@ function insaneBattleEnemy(){
         //Enemy is Fire Cat
         battleEnemy = "Fire Cat";
     }
+}
+
+function processEvent(){
+
 }
