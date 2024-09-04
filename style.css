@@ -40,6 +40,17 @@ body{
     width: 85%;
 }
 
+#eventDetails{
+    font-size: 2vw;
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 65%;
+}
+
 #label{
     font-size: 5vw;
     font-family: 'Luminari', fantasy, 'Courier New', Courier, monospace;

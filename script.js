@@ -26,14 +26,24 @@ var mapIcon = document.getElementById("mapIcon");
 var eventTitle = document.getElementById("eventTitle");
 var enemyIcon = document.getElementById("enemyIcon");
 var nextButton = document.getElementById("nextButton");
+var eventDetails = document.getElementById("eventDetails");
 let charName = "N/A";
 let difficulty = "N/A";
 let eventType = "N/A";
 let eventName = "N/A";
 let battleEnemy = "N/A";
+let energyOrHP = "N/A";
 let num = 0;
 let negReq = 0;
 let negative = false;
+let enemyATK = 0;
+let enemyDEF = 0;
+let enemyHP = 0;
+let changeATK = 0;
+let changeDEF = 0;
+let changeHP = 0;
+let changeEnergy = 0;
+let changeSpace = 0;
 
 //Game Variables
 var health = 0;
@@ -433,6 +443,7 @@ function showEventDesc(){
     eventTitle.hidden = false;
     enemyIcon.hidden = false;
     nextButton.hidden = false;
+    eventDetails.hidden = false;
 }
 
 function hideEventDesc(){
@@ -440,6 +451,7 @@ function hideEventDesc(){
     eventTitle.hidden = true;
     enemyIcon.hidden = true;
     nextButton.hidden = true;
+    eventDetails.hidden = true;
 }
 
 function movePosition(){
@@ -523,6 +535,11 @@ function decideEvent(){
              //Setting enemy icon
             enemyIcon.src = "Sprites/FireCat/fireCatStandby.png";
         }
+        //Sets event description
+        eventDetails.innerHTML = 
+            "<big>ATK: </big>" + enemyATK +
+            "<br> <big>DEF: </big>" + enemyDEF +
+            "<br> <big>HP: </big>" + enemyATK;
 
     }
     //If event is a special event
@@ -533,7 +550,7 @@ function decideEvent(){
             negative = true;
         }
         //Generates new number from 1-100
-    num = Math.floor(Math.random() * 100) + 1;
+        num = Math.floor(Math.random() * 100) + 1;
 
         //If event is negative
         if (negative == true){
@@ -543,6 +560,8 @@ function decideEvent(){
                 eventName = "Restless Night";
                 //Setting event title
                 eventTitle.innerHTML = "Restless Night";
+                //Setting event description
+                eventDetails.innerHTML = "Each character's energy decreased by: " + changeEnergy;
             }
             //If number generated was more than 25 and less than or equal to 50
             else if (num > 25 && num <= 50){
@@ -550,6 +569,8 @@ function decideEvent(){
                 eventName = "Night Attack";
                 //Setting event title
                 eventTitle.innerHTML = "Night Attack";
+                //Setting event description
+                eventDetails.innerHTML = "Each character's ATK decreased by: " + changeATK;
             }
             //If number generated was more than 50 and less than or equal to 75
             else if (num > 50 && num <= 75){
@@ -557,6 +578,8 @@ function decideEvent(){
                 eventName = "Debuff";
                 //Setting event title
                 eventTitle.innerHTML = "Debuff";
+                //setting event description
+                eventDetails.innerHTML = "Each characters max " + energyOrHP + " decreased by: " + changeDEF;
             }
             //If number generated was more than 75
             else if (num > 75){
@@ -564,6 +587,8 @@ function decideEvent(){
                 eventName = "Chase Away";
                 //Setting event title
                 eventTitle.innerHTML = "Chase Away";
+                //Setting event description
+                eventDetails.innerHTML = "Chased you back " + changeSpace + " spaces";
             }
         }
         //If event is positive
@@ -574,6 +599,8 @@ function decideEvent(){
                 eventName = "ATK Bonus";
                 //Setting event title
                 eventTitle.innerHTML = "ATK Bonus";
+                //Setting event description
+                eventDetails.innerHTML = "Each character's ATK increased by: " + changeATK;
             }
             //If number generated was more than 20 and less than or equal to 40
             else if (num > 20 && num <= 40){
@@ -581,6 +608,8 @@ function decideEvent(){
                 eventName = "DEF Bonus";
                 //Setting event title
                 eventTitle.innerHTML = "DEF Bonus";
+                //Setting event description
+                eventDetails.innerHTML = "Each character's DEF increased by: " + changeDEF;
             }
             //If number generated was more than 40 and less than or equal to 60
             else if (num > 40 && num <= 60){
@@ -588,6 +617,8 @@ function decideEvent(){
                 eventName = "Health Bonus";
                 //Setting event title
                 eventTitle.innerHTML = "Health Bonus";
+                //Setting event description
+                eventDetails.innerHTML = "Each character's max HP increased by: " + changeHP;
             }
            //If number generated was more than 60 and less than or equal to 80
            else if (num > 60 && num <= 80){
@@ -595,6 +626,8 @@ function decideEvent(){
                 eventName = "Energy Bonus";
                 //Setting event title
                 eventTitle.innerHTML = "Energy Bonus";
+                //Setting event description
+                eventDetails.innerHTML = "Each character's max energy increased by: " + changeEnergy;
            } 
            //If number generated was more than 80
            else if (num > 80){
@@ -602,6 +635,8 @@ function decideEvent(){
                 eventName = "Rest Day";
                 //Setting event title
                 eventTitle.innerHTML = "Rest Day";
+                //Setting event description
+                eventDetails.innerHTML = "Each character restored to max HP and energy";
            }
         }
     }
