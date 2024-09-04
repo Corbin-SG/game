@@ -269,3 +269,13 @@ button:hover{
     height: 11vw;
     width: 11vw;
 }
+
+#eventTitle{
+    font-size: 5vw;
+    font-family: 'Luminari', fantasy, 'Courier New', Courier, monospace;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+}

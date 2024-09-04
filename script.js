@@ -23,6 +23,7 @@ var charConfirmHead = document.getElementById("abilityHead");
 var attackDesc = document.getElementById("attack");
 var specialDesc = document.getElementById("special");
 var mapIcon = document.getElementById("mapIcon");
+var eventTitle = document.getElementById("eventTitle");
 let charName = "N/A";
 let difficulty = "N/A";
 let eventType = "N/A";
@@ -293,8 +294,14 @@ confirmCharButton.addEventListener("click", function(){
 })
 
 moveButton.addEventListener("click", function(){
+    //Moves player position
     movePosition();
+    //Decides which event happens
     decideEvent();
+
+    //Moves to event screen
+    hideMap();
+    showEventDesc();
 })
 
 function showCharConfirm(){
@@ -408,6 +415,14 @@ function hideMap(){
     mapIcon.hidden = true;
 }
 
+function showEventDesc(){
+    //Changes background to plain gray screen
+    document.body.style.backgroundImage = "url(Backgrounds/grayScreen.png)";
+
+    //Unhides event title
+    eventTitle.hidden = false;
+}
+
 function movePosition(){
     x++;
     mapIcon.style.top = posArray[x][0] + "vh";
@@ -451,6 +466,33 @@ function decideEvent(){
         else if (difficulty == "Insane"){
             insaneBattleEnemy();
         }
+
+        //Sets event title
+        if (battleEnemy == "Slime"){
+            //Setting event title
+            eventTitle.innerHTML = "<big>BATTLE:</big> Slime";
+        }
+        else if (battleEnemy == "Crab"){
+            //Setting event title
+            eventTitle.innerHTML = "<big>BATTLE:</big> Crab";
+        }
+        else if (battleEnemy == "Dark Matter"){
+            //Setting event title
+            eventTitle.innerHTML = "<big>BATTLE:</big> Dark Matter";
+        }
+        else if (battleEnemy == "Drone"){
+            //Setting event title
+            eventTitle.innerHTML = "<big>BATTLE:</big> Drone";
+        }
+        else if (battleEnemy == "Snow Monster"){
+            //Setting event title
+            eventTitle.innerHTML = "<big>BATTLE:</big> Snow Monster";
+        }
+        else if (battleEnemy == "Fire Cat"){
+            //Setting event title
+            eventTitle.innerHTML = "<big>BATTLE:</big> Fire Cat";
+        }
+
     }
     //If event is a special event
     else if (eventType == "Special"){
@@ -468,21 +510,29 @@ function decideEvent(){
             if (num <= 25){
                 //Event is Restless Night
                 eventName = "Restless Night";
+                //Setting event title
+                eventTitle.innerHTML = "Restless Night";
             }
             //If number generated was more than 25 and less than or equal to 50
             else if (num > 25 && num <= 50){
                 //Event is Night Attack
                 eventName = "Night Attack";
+                //Setting event title
+                eventTitle.innerHTML = "Night Attack";
             }
             //If number generated was more than 50 and less than or equal to 75
             else if (num > 50 && num <= 75){
                 //Event is Debuff
                 eventName = "Debuff";
+                //Setting event title
+                eventTitle.innerHTML = "Debuff";
             }
             //If number generated was more than 75
             else if (num > 75){
                 //Event is Chase Away
                 eventName = "Chase Away";
+                //Setting event title
+                eventTitle.innerHTML = "Chase Away";
             }
         }
         //If event is positive
@@ -491,26 +541,36 @@ function decideEvent(){
             if (num <= 20){
                 //Event is ATK Bonus
                 eventName = "ATK Bonus";
+                //Setting event title
+                eventTitle.innerHTML = "ATK Bonus";
             }
             //If number generated was more than 20 and less than or equal to 40
             else if (num > 20 && num <= 40){
                 //Event is DEF Bonus
                 eventName = "DEF Bonus";
+                //Setting event title
+                eventTitle.innerHTML = "DEF Bonus";
             }
             //If number generated was more than 40 and less than or equal to 60
             else if (num > 40 && num <= 60){
                 //Event is Health Bonus
                 eventName = "Health Bonus";
+                //Setting event title
+                eventTitle.innerHTML = "Health Bonus";
             }
            //If number generated was more than 60 and less than or equal to 80
            else if (num > 60 && num <= 80){
                 //Event is Energy Bonus
                 eventName = "Energy Bonus";
+                //Setting event title
+                eventTitle.innerHTML = "Energy Bonus";
            } 
            //If number generated was more than 80
            else if (num > 80){
                 //Event is Rest Day
                 eventName = "Rest Day";
+                //Setting event title
+                eventTitle.innerHTML = "Rest Day";
            }
         }
     }
