@@ -26,8 +26,11 @@ var mapIcon = document.getElementById("mapIcon");
 let charName = "N/A";
 let difficulty = "N/A";
 let eventType = "N/A";
+let eventName = "N/A";
 let battleEnemy = "N/A";
 let num = 0;
+let negReq = 0;
+let negative = false;
 
 //Game Variables
 var health = 0;
@@ -146,6 +149,8 @@ easyButton.addEventListener("click", function(){
     hideDiff();
     //Set difficulty
     difficulty = "Easy";
+    //Set negative event ratio
+    negReq = 25;
     //Set move button
     moveButton.style.left = "20%";
     moveButton.style.top = "2%";
@@ -165,6 +170,8 @@ regularButton.addEventListener("click", function(){
     hideDiff();
     //Set difficulty
     difficulty = "Regular";
+    //Set negative event ratio
+    negReq = 50;
     //Set move button
     moveButton.style.left = "2%";
     moveButton.style.top = "2%";
@@ -184,6 +191,8 @@ hardButton.addEventListener("click", function(){
     hideDiff();
     //Set difficulty
     difficulty = "Hard";
+    //Set negative event ratio
+    negReq = 60;
     //Set move button
     moveButton.style.left = "14%";
     moveButton.style.top = "87%";
@@ -202,6 +211,8 @@ insaneButton.addEventListener("click", function(){
     hideDiff();
     //Set difficulty
     difficulty = "Insane";
+    //Set negative event ratio
+    negReq = 75;
     //Set move button
     moveButton.style.left = "1%";
     moveButton.style.top = "50%";
@@ -283,6 +294,7 @@ confirmCharButton.addEventListener("click", function(){
 
 moveButton.addEventListener("click", function(){
     movePosition();
+    decideEvent();
 })
 
 function showCharConfirm(){
@@ -442,7 +454,65 @@ function decideEvent(){
     }
     //If event is a special event
     else if (eventType == "Special"){
+        //If number generated was below the negative requirement
+        if (num <= negReq){
+            //Sets negative event to true
+            negative = true;
+        }
+        //Generates new number from 1-100
+    num = Math.floor(Math.random() * 100) + 1;
 
+        //If event is negative
+        if (negative == true){
+            //If number generated was less than or equal to 25
+            if (num <= 25){
+                //Event is Restless Night
+                eventName = "Restless Night";
+            }
+            //If number generated was more than 25 and less than or equal to 50
+            else if (num > 25 && num <= 50){
+                //Event is Night Attack
+                eventName = "Night Attack";
+            }
+            //If number generated was more than 50 and less than or equal to 75
+            else if (num > 50 && num <= 75){
+                //Event is Debuff
+                eventName = "Debuff";
+            }
+            //If number generated was more than 75
+            else if (num > 75){
+                //Event is Chase Away
+                eventName = "Chase Away";
+            }
+        }
+        //If event is positive
+        else{
+            //If number generated was less than or equal to 20
+            if (num <= 20){
+                //Event is ATK Bonus
+                eventName = "ATK Bonus";
+            }
+            //If number generated was more than 20 and less than or equal to 40
+            else if (num > 20 && num <= 40){
+                //Event is DEF Bonus
+                eventName = "DEF Bonus";
+            }
+            //If number generated was more than 40 and less than or equal to 60
+            else if (num > 40 && num <= 60){
+                //Event is Health Bonus
+                eventName = "Health Bonus";
+            }
+           //If number generated was more than 60 and less than or equal to 80
+           else if (num > 60 && num <= 80){
+                //Event is Energy Bonus
+                eventName = "Energy Bonus";
+           } 
+           //If number generated was more than 80
+           else if (num > 80){
+                //Event is Rest Day
+                eventName = "Rest Day";
+           }
+        }
     }
 
 }
