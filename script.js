@@ -515,16 +515,118 @@ function easyBattleEnemy(){
         //Enemy is Crab
         battleEnemy = "Crab";
     }
+    //If number generated was more than 60 and less than or equal to 80
+    else if (num > 60 && num <= 80){
+        //Enemy is Drone
+        battleEnemy = "Drone";
+    }
+    //If number generated was more than 80 and less than or equal to 90
+    else if (num > 80 && num <= 90){
+        //Enemy is Snow Monster
+        battleEnemy = "Snow Monster";
+    }
+    //If number generated was more than 90
+    else if (num > 90){
+        //Enemy is Fire Cat
+        battleEnemy = "Fire Cat";
+    }
 }
 
 function regularBattleEnemy(){
-
+    //If number generated was less than or equal to 7
+    if (num <= 7){
+        //Enemy is slime
+        battleEnemy = "Slime";
+    }
+    //If number generated was more than 7 and less than or equal to 15
+    else if (num > 7 && num <= 15){
+        //Enemy is Dark Matter
+        battleEnemy = "Dark Matter";
+    }
+    //If number generated was more than 15 and less than or equal to 65
+    else if (num > 15 && num <= 65){
+        //Enemy is Crab
+        battleEnemy = "Crab";
+    }
+    //If number generated was more than 65 and less than or equal to 80
+    else if (num > 65 && num <= 80){
+        //Enemy is Drone
+        battleEnemy = "Drone";
+    }
+    //If number generated was more than 80 and less than or equal to 85
+    else if (num > 80 && num <= 85){
+        //Enemy is Snow Monster
+        battleEnemy = "Snow Monster";
+    }
+    //If number generated was more than 85
+    else if (num > 85){
+        //Enemy is Fire Cat
+        battleEnemy = "Fire Cat";
+    }
 }
 
 function hardBattleEnemy(){
-
+    //If number generated was less than or equal to 10
+    if (num <= 10){
+        //Enemy is slime
+        battleEnemy = "Slime";
+    }
+    //If number generated was more than 10 and less than or equal to 25
+    else if (num > 10 && num <= 25){
+        //Enemy is Dark Matter
+        battleEnemy = "Dark Matter";
+    }
+    //If number generated was more than 25 and less than or equal to 35
+    else if (num > 25 && num <= 35){
+        //Enemy is Crab
+        battleEnemy = "Crab";
+    }
+    //If number generated was more than 35 and less than or equal to 45
+    else if (num > 35 && num <= 45){
+        //Enemy is Drone
+        battleEnemy = "Drone";
+    }
+    //If number generated was more than 45 and less than or equal to 95
+    else if (num > 45 && num <= 95){
+        //Enemy is Snow Monster
+        battleEnemy = "Snow Monster";
+    }
+    //If number generated was more than 95
+    else if (num > 95){
+        //Enemy is Fire Cat
+        battleEnemy = "Fire Cat";
+    }
 }
 
 function insaneBattleEnemy(){
-
+    //If number generated was less than or equal to 10
+    if (num <= 10){
+        //Enemy is slime
+        battleEnemy = "Slime";
+    }
+    //If number generated was more than 10 and less than or equal to 20
+    else if (num > 10 && num <= 20){
+        //Enemy is Dark Matter
+        battleEnemy = "Dark Matter";
+    }
+    //If number generated was more than 20 and less than or equal to 35
+    else if (num > 20 && num <= 35){
+        //Enemy is Crab
+        battleEnemy = "Crab";
+    }
+    //If number generated was more than 35 and less than or equal to 45
+    else if (num > 35 && num <= 45){
+        //Enemy is Drone
+        battleEnemy = "Drone";
+    }
+    //If number generated was more than 45 and less than or equal to 50
+    else if (num > 45 && num <= 50){
+        //Enemy is Snow Monster
+        battleEnemy = "Snow Monster";
+    }
+    //If number generated was more than 50
+    else if (num > 50){
+        //Enemy is Fire Cat
+        battleEnemy = "Fire Cat";
+    }
 }
