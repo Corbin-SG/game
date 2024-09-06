@@ -332,6 +332,7 @@ moveButton.addEventListener("click", function(){
 nextButton.addEventListener("click", function(){
     //Changes screen
     hideEventDesc();
+    processBattle();
     showMap();
 })
 
@@ -575,6 +576,7 @@ function decideEvent(){
                 restlessNight();
                 //Setting event description
                 eventDetails.innerHTML = "Each character's energy decreased by: " + changeEnergy;
+                enemyIcon.src = "Sprites/eventIcons/restlessNightIcon.png";
             }
             //If number generated was more than 25 and less than or equal to 50
             else if (num > 25 && num <= 50){
@@ -586,6 +588,7 @@ function decideEvent(){
                 nightAttack();
                 //Setting event description
                 eventDetails.innerHTML = "Each character's ATK decreased by: " + changeATK;
+                enemyIcon.src = "Sprites/eventIcons/nightAttackIcon.png";
             }
             //If number generated was more than 50 and less than or equal to 75
             else if (num > 50 && num <= 75){
@@ -597,6 +600,7 @@ function decideEvent(){
                 debuffEvent();
                 //setting event description
                 eventDetails.innerHTML = "Each characters max " + energyOrHP + " decreased by: " + debuffValue;
+                enemyIcon.src = "Sprites/eventIcons/debuffIcon.png";
             }
             //If number generated was more than 75
             else if (num > 75){
@@ -608,6 +612,7 @@ function decideEvent(){
                 chaseAway();
                 //Setting event description
                 eventDetails.innerHTML = "Chased you back " + changeSpace + " spaces";
+                enemyIcon.src = "Sprites/eventIcons/chaseAwayIcon.png";
             }
         }
         //If event is positive
@@ -622,6 +627,7 @@ function decideEvent(){
                 atkBonus();
                 //Setting event description
                 eventDetails.innerHTML = "Each character's ATK increased by: " + changeATK;
+                enemyIcon.src = "Sprites/eventIcons/attackBonusIcon.png";
             }
             //If number generated was more than 20 and less than or equal to 40
             else if (num > 20 && num <= 40){
@@ -633,6 +639,7 @@ function decideEvent(){
                 defBonus();
                 //Setting event description
                 eventDetails.innerHTML = "Each character's DEF increased by: " + changeDEF;
+                enemyIcon.src = "Sprites/eventIcons/defenceBonusIcon.png";
             }
             //If number generated was more than 40 and less than or equal to 60
             else if (num > 40 && num <= 60){
@@ -644,6 +651,7 @@ function decideEvent(){
                 healthBonus();
                 //Setting event description
                 eventDetails.innerHTML = "Each character's max HP increased by: " + changeHP;
+                enemyIcon.src = "Sprites/eventIcons/healthBonusIcon.png";
             }
            //If number generated was more than 60 and less than or equal to 80
            else if (num > 60 && num <= 80){
@@ -655,6 +663,7 @@ function decideEvent(){
                 energyBonus();
                 //Setting event description
                 eventDetails.innerHTML = "Each character's max energy increased by: " + changeEnergy;
+                enemyIcon.src = "Sprites/eventIcons/energyBonusIcon.png";
            } 
            //If number generated was more than 80
            else if (num > 80){
@@ -666,6 +675,7 @@ function decideEvent(){
                 restDay();
                 //Setting event description
                 eventDetails.innerHTML = "Each character restored to max HP and energy";
+                enemyIcon.src = "Sprites/eventIcons/restDayIcon.png";
            }
         }
     }
@@ -1127,4 +1137,8 @@ function chaseAway(){
     x -= changeSpace;
     mapIcon.style.top = posArray[x][0] + "vh";
     mapIcon.style.left = posArray[x][1] + "vw";
+}
+
+function processBattle(){
+
 }
