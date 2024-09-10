@@ -1,4 +1,5 @@
 //Variables
+var bgImage = document.getElementById("bckgroundImg");
 var infoButton = document.getElementById("info");
 var startButton = document.getElementById("start");
 var backToMainButton = document.getElementById("backToMain");
@@ -27,6 +28,13 @@ var eventTitle = document.getElementById("eventTitle");
 var enemyIcon = document.getElementById("enemyIcon");
 var nextButton = document.getElementById("nextButton");
 var eventDetails = document.getElementById("eventDetails");
+var enemyBattle = document.getElementById("enemyBattle");
+var renBattle = document.getElementById("renBattle");
+var lukaBattle = document.getElementById("lukaBattle");
+var ollieBattle = document.getElementById("ollieBattle");
+var caidynBattle = document.getElementById("caidynBattle");
+var attackButton = document.getElementById("attackButton");
+var specialButton = document.getElementById("specialButton");
 let charName = "N/A";
 let difficulty = "N/A";
 let eventType = "N/A";
@@ -67,6 +75,11 @@ var playerSpot = 1.0;
 var maxSpot = 1.0;
 
 //Space Positions
+var enemyPos = [0, 0];
+var renPos = [0, 0];
+var lukaPos = [0, 0];
+var olliePos = [0, 0];
+var caidynPos = [0, 0];
 var x = 0;
 var posArray = [];
 const easy = [
@@ -167,6 +180,7 @@ backToMainButton.addEventListener("click", function(){
 
 startButton.addEventListener("click", function(){
     showDiff();
+    //showBattle();
     hideStart();
 })
 
@@ -182,12 +196,12 @@ easyButton.addEventListener("click", function(){
     moveButton.style.top = "2%";
     moveButton.style.height = "40%";
     moveButton.style.width = "60%";
-    moveButton.style.fontSize = "9vw";
+    moveButton.style.fontSize = "600%";
     //Set position
     maxSpot = 8;
     posArray = easy;
-    mapIcon.style.top = posArray[0][0] + "vh";
-    mapIcon.style.left = posArray[0][1] + "vw";
+    mapIcon.style.top = posArray[0][0] + "%";
+    mapIcon.style.left = posArray[0][1] + "%";
 
 })
 
@@ -203,12 +217,12 @@ regularButton.addEventListener("click", function(){
     moveButton.style.top = "2%";
     moveButton.style.height = "35%";
     moveButton.style.width = "50%";
-    moveButton.style.fontSize = "7vw";
+    moveButton.style.fontSize = "500%";
     //Set position
     maxSpot = 13;
     posArray = regular;
-    mapIcon.style.top = posArray[0][0] + "vh";
-    mapIcon.style.left = posArray[0][1] + "vw";
+    mapIcon.style.top = posArray[0][0] + "%";
+    mapIcon.style.left = posArray[0][1] + "%";
 
 })
 
@@ -224,12 +238,12 @@ hardButton.addEventListener("click", function(){
     moveButton.style.top = "87%";
     moveButton.style.width = "30%";
     moveButton.style.height = "10%";
-    moveButton.style.fontSize = "3vw";
+    moveButton.style.fontSize = "300%";
     //Set position
     maxSpot = 24;
     posArray = hard;
-    mapIcon.style.top = posArray[0][0] + "vh";
-    mapIcon.style.left = posArray[0][1] + "vw";
+    mapIcon.style.top = posArray[0][0] + "%";
+    mapIcon.style.left = posArray[0][1] + "%";
 })
 
 insaneButton.addEventListener("click", function(){
@@ -244,12 +258,12 @@ insaneButton.addEventListener("click", function(){
     moveButton.style.top = "50%";
     moveButton.style.width = "35%";
     moveButton.style.height = "25%";
-    moveButton.style.fontSize = "5vw";
+    moveButton.style.fontSize = "400%";
     //Set position
     maxSpot = 31;
     posArray = insane;
-    mapIcon.style.top = posArray[0][0] + "vh";
-    mapIcon.style.left = posArray[0][1] + "vw";
+    mapIcon.style.top = posArray[0][0] + "%";
+    mapIcon.style.left = posArray[0][1] + "%";
 })
 
 backToDifficultyButton.addEventListener("click", function(){
@@ -337,7 +351,7 @@ nextButton.addEventListener("click", function(){
 })
 
 function showCharConfirm(){
-    document.body.style.backgroundImage = "url(Backgrounds/thirdNotebookScreen.png";
+    bgImage.src = "Backgrounds/thirdNotebookScreen.png";
     display.hidden = false
     backToCharButton.hidden = false
     confirmCharButton.hidden = false
@@ -356,7 +370,7 @@ function hideCharConfirm(){
 }
 
 function showInfo(){
-    document.body.style.backgroundImage ="url(Backgrounds/notebookScreen.png)";
+    bgImage.src = "Backgrounds/notebookScreen.png";
     infoText.hidden = false
     infoLabel.hidden = false
     backToMainButton.hidden = false
@@ -369,8 +383,7 @@ function hideStart(){
 }
 
 function showStart(){
-    document.body.style.backgroundImage = "url(Backgrounds/startScreen.png)";
-    document.body.style.border = "none";
+    bgImage.src = "Backgrounds/startScreen.png";
     infoButton.hidden = false
     startButton.hidden = false
 }
@@ -388,7 +401,7 @@ function hideInfoDiff(){
 }
 
 function showDiff(){
-    document.body.style.backgroundImage = "url(Backgrounds/notebookScreen.png)";
+    bgImage.src = "Backgrounds/notebookScreen.png";
     backToMainButton.hidden = false
     easyButton.hidden = false
     regularButton.hidden = false
@@ -407,7 +420,7 @@ function hideDiff(){
 }
 
 function showChar(){
-    document.body.style.backgroundImage = "url(Backgrounds/secondNotebookScreen.png)";
+    bgImage.src = "Backgrounds/secondNotebookScreen.png";
     backToDifficultyButton.hidden = false
     renButton.hidden = false
     lukaButton.hidden = false
@@ -425,20 +438,51 @@ function hideChar(){
 
 function showMap(){
     if (difficulty.localeCompare("Easy") == 0){
-        document.body.style.backgroundImage = "url(Backgrounds/easyMap.png)";
+        bgImage.src = "Backgrounds/easyMap.png";
     }
     else if (difficulty.localeCompare("Regular") == 0){
-        document.body.style.backgroundImage = "url(Backgrounds/regularMap.png)";
+        bgImage.src = "Backgrounds/regularMap.png";
     }
     else if (difficulty.localeCompare("Hard") == 0){
-        document.body.style.backgroundImage = "url(Backgrounds/hardMap.png)";
+        bgImage.src = "Backgrounds/hardMap.png";
     }
     else if (difficulty.localeCompare("Insane") == 0){
-        document.body.style.backgroundImage = "url(Backgrounds/insaneMap.png)";
+        bgImage.src = "Backgrounds/insaneMap.png";
     }
 
     moveButton.hidden = false;
     mapIcon.hidden = false;
+}
+
+function showBattle(){
+    //Changing background
+    /* if (difficulty.localeCompare("Easy") == 0){
+        bgImage.src = "Backgrounds/easyBattle.png"
+        enemyPos = [46, 63];
+        renPos = [70, 73];
+    }
+    else if (difficulty.localeCompare("Regular") == 0){
+        bgImage.src = "Backgrounds/regularBattle.png";
+    }
+    else if (difficulty.localeCompare("Hard") == 0){
+        bgImage.src = "Backgrounds/hardBattle.png";
+    }
+    else if (difficulty.localeCompare("Insane") == 0){
+        bgImage.src = "Backgrounds/insaneBattle.png";
+    } */
+
+    //TEST
+    bgImage.src = "Backgrounds/easyBattle.png";
+
+    //Unhiding map sprites/buttons
+    enemyBattle.hidden = false;
+    renBattle.hidden = false;
+    lukaBattle.hidden = false;
+    ollieBattle.hidden = false;
+    caidynBattle.hidden = false;
+    attackButton.hidden = false;
+    specialButton.hidden = false;
+
 }
 
 function hideMap(){
@@ -449,7 +493,7 @@ function hideMap(){
 
 function showEventDesc(){
     //Changes background to plain gray screen
-    document.body.style.backgroundImage = "url(Backgrounds/grayScreen.png)";
+    bgImage.src = "Backgrounds/grayScreen.png";
 
     //Unhides event title
     eventTitle.hidden = false;
@@ -468,8 +512,8 @@ function hideEventDesc(){
 
 function movePosition(){
     x++;
-    mapIcon.style.top = posArray[x][0] + "vh";
-    mapIcon.style.left = posArray[x][1] + "vw";
+    mapIcon.style.top = posArray[x][0] + "%";
+    mapIcon.style.left = posArray[x][1] + "%";
 }
 
 //Generates a random number then calls a function that decides event
@@ -547,11 +591,12 @@ function decideEvent(){
              //Setting enemy icon
             enemyIcon.src = "Sprites/FireCat/fireCatStandby.png";
         }
+        //Generates enemy health
+        enemyHP = Math.floor(Math.random() * (maxNum - minNum) ) + minNum;
         //Sets event description
         eventDetails.innerHTML = 
-            "<big>ATK: </big>" + enemyATK +
-            "<br> <big>DEF: </big>" + enemyDEF +
-            "<br> <big>HP: </big>" + enemyATK;
+            "<big>HP: </big>" + enemyHP +
+            "<br> <big>DEF: </big>" + enemyDEF;
 
     }
     //If event is a special event
@@ -739,31 +784,49 @@ function easyBattleEnemy(){
     if (num <= 25){
         //Enemy is slime
         battleEnemy = "Slime";
+        //Max and min health values
+        maxNum = 500;
+        minNum = 300;
     }
     //If number generated was more than 25 and less than or equal to 45
     else if (num > 25 && num <= 45){
         //Enemy is Dark Matter
         battleEnemy = "Dark Matter";
+        //Max and min health values
+        maxNum = 250;
+        minNum = 150;
     }
     //If number generated was more than 45 and less than or equal to 60
     else if (num > 45 && num <= 60){
         //Enemy is Crab
         battleEnemy = "Crab";
+        //Max and min health values
+        maxNum = 600;
+        minNum = 400;
     }
     //If number generated was more than 60 and less than or equal to 80
     else if (num > 60 && num <= 80){
         //Enemy is Drone
         battleEnemy = "Drone";
+        //Max and min health values
+        maxNum = 100;
+        minNum = 150;
     }
     //If number generated was more than 80 and less than or equal to 90
     else if (num > 80 && num <= 90){
         //Enemy is Snow Monster
         battleEnemy = "Snow Monster";
+        //Max and min health values
+        maxNum = 300;
+        minNum = 150;
     }
     //If number generated was more than 90
     else if (num > 90){
         //Enemy is Fire Cat
         battleEnemy = "Fire Cat";
+        //Max and min health values
+        maxNum = 100;
+        minNum = 250;
     }
 }
 
@@ -772,31 +835,49 @@ function regularBattleEnemy(){
     if (num <= 7){
         //Enemy is slime
         battleEnemy = "Slime";
+        //Max and min health values
+        maxNum = 700;
+        minNum = 500;
     }
     //If number generated was more than 7 and less than or equal to 15
     else if (num > 7 && num <= 15){
         //Enemy is Dark Matter
         battleEnemy = "Dark Matter";
+        //Max and min health values
+        maxNum = 350;
+        minNum = 250;
     }
     //If number generated was more than 15 and less than or equal to 65
     else if (num > 15 && num <= 65){
         //Enemy is Crab
         battleEnemy = "Crab";
+        //Max and min health values
+        maxNum = 800;
+        minNum = 600;
     }
     //If number generated was more than 65 and less than or equal to 80
     else if (num > 65 && num <= 80){
         //Enemy is Drone
         battleEnemy = "Drone";
+        //Max and min health values
+        maxNum = 200;
+        minNum = 150;
     }
     //If number generated was more than 80 and less than or equal to 85
     else if (num > 80 && num <= 85){
         //Enemy is Snow Monster
         battleEnemy = "Snow Monster";
+        //Max and min health values
+        maxNum = 500;
+        minNum = 300;
     }
     //If number generated was more than 85
     else if (num > 85){
         //Enemy is Fire Cat
         battleEnemy = "Fire Cat";
+        //Max and min health values
+        maxNum = 400;
+        minNum = 250;
     }
 }
 
@@ -805,31 +886,49 @@ function hardBattleEnemy(){
     if (num <= 10){
         //Enemy is slime
         battleEnemy = "Slime";
+        //Max and min health values
+        maxNum = 1000;
+        minNum = 700;
     }
     //If number generated was more than 10 and less than or equal to 25
     else if (num > 10 && num <= 25){
         //Enemy is Dark Matter
         battleEnemy = "Dark Matter";
+        //Max and min health values
+        maxNum = 500;
+        minNum = 350;
     }
     //If number generated was more than 25 and less than or equal to 35
     else if (num > 25 && num <= 35){
         //Enemy is Crab
         battleEnemy = "Crab";
+        //Max and min health values
+        maxNum = 1000;
+        minNum = 800;
     }
     //If number generated was more than 35 and less than or equal to 45
     else if (num > 35 && num <= 45){
         //Enemy is Drone
         battleEnemy = "Drone";
+        //Max and min health values
+        maxNum = 350;
+        minNum = 200;
     }
     //If number generated was more than 45 and less than or equal to 95
     else if (num > 45 && num <= 95){
         //Enemy is Snow Monster
         battleEnemy = "Snow Monster";
+        //Max and min health values
+        maxNum = 750;
+        minNum = 500;
     }
     //If number generated was more than 95
     else if (num > 95){
         //Enemy is Fire Cat
         battleEnemy = "Fire Cat";
+        //Max and min health values
+        maxNum = 700;
+        minNum = 400;
     }
 }
 
@@ -838,31 +937,49 @@ function insaneBattleEnemy(){
     if (num <= 10){
         //Enemy is slime
         battleEnemy = "Slime";
+        //Max and min health values
+        maxNum = 1500;
+        minNum = 1000;
     }
     //If number generated was more than 10 and less than or equal to 20
     else if (num > 10 && num <= 20){
         //Enemy is Dark Matter
         battleEnemy = "Dark Matter";
+        //Max and min health values
+        maxNum = 750;
+        minNum = 500;
     }
     //If number generated was more than 20 and less than or equal to 35
     else if (num > 20 && num <= 35){
         //Enemy is Crab
         battleEnemy = "Crab";
+        //Max and min health values
+        maxNum = 1700;
+        minNum = 1000;
     }
     //If number generated was more than 35 and less than or equal to 45
     else if (num > 35 && num <= 45){
         //Enemy is Drone
         battleEnemy = "Drone";
+        //Max and min health values
+        maxNum = 500;
+        minNum = 350;
     }
     //If number generated was more than 45 and less than or equal to 50
     else if (num > 45 && num <= 50){
         //Enemy is Snow Monster
         battleEnemy = "Snow Monster";
+        //Max and min health values
+        maxNum = 1100;
+        minNum = 750;
     }
     //If number generated was more than 50
     else if (num > 50){
         //Enemy is Fire Cat
         battleEnemy = "Fire Cat";
+        //Max and min health values
+        maxNum = 1000;
+        minNum = 700;
     }
 }
 
@@ -1135,8 +1252,8 @@ function chaseAway(){
     changeSpace = Math.floor(Math.random() * (maxNum - minNum + 1) ) + minNum;
 
     x -= changeSpace;
-    mapIcon.style.top = posArray[x][0] + "vh";
-    mapIcon.style.left = posArray[x][1] + "vw";
+    mapIcon.style.top = posArray[x][0] + "%";
+    mapIcon.style.left = posArray[x][1] + "%";
 }
 
 function processBattle(){

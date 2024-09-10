@@ -8,8 +8,12 @@
   <title>Corbin SG</title>
 </head>
 <body>
+<div class = "background">
+  <img src="Backgrounds/startScreen.png" id="bckgroundImg">
+
   <!-- Overall container for game-->
-  <div id="background">
+  <div>
+
     <!-- Start button-->
     <button class ="button" id="start">START</button>
     <!-- Information button-->
@@ -67,6 +71,16 @@
     <img id = "enemyIcon" src = "Sprites/Slime/slimeStandby.png"hidden>
     <button class="buttonTwo" id="nextButton"hidden>NEXT</button>
     <h2 id = "eventDetails"hidden></h2>
+
+    <!-- Battle Screen-->
+     <img id="enemyBattle" src="Sprites/Crab/crabStandby.png"hidden>
+     <img id = "renBattle" src = "Sprites/Ren/renStandby.png"hidden>
+     <img id = "lukaBattle" src="Sprites/Luka/lukaStandby.png"hidden>
+     <img id = "ollieBattle" src="Sprites/Ollie/ollieStandby.png"hidden>
+     <img id = "caidynBattle" src="Sprites/Caidyn/caidynStandby.png"hidden>
+     <button class="button" id="attackButton"hidden>ATK</button>
+     <button class="button" id="specialButton"hidden>SPECIAL</button>
+  </div>
   </div>
   <!-- Linking scripting file-->
   <script src="script.js"></script>

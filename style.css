@@ -1,15 +1,23 @@
 body{
-    background-image: url(Backgrounds/startScreen.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
     margin: 0px;
-    width: 100%;
-    height: 100vh;
+    position: fixed;
+}
+
+.background{
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 85%;
+    position: relative;
+    margin: auto;
     overflow: hidden;
 }
 
+#bckgroundImg{
+    width: 100%;
+}
+
 #start{
-    font-size: 3vw;
+    font-size: 150%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -20,7 +28,7 @@ body{
 }
 
 #info{
-    font-size: 3vw;
+    font-size: 150%;
     position:absolute;
     top:70%;
     left: 50%;
@@ -30,7 +38,7 @@ body{
 }
 
 #information{
-    font-size: 2vw;
+    font-size: 150%;
     font-family: 'Courier New', Courier, monospace;
     position: absolute;
     top: 50%;
@@ -41,7 +49,7 @@ body{
 }
 
 #eventDetails{
-    font-size: 2vw;
+    font-size: 125%;
     font-family: 'Courier New', Courier, monospace;
     position: absolute;
     top: 50%;
@@ -52,7 +60,7 @@ body{
 }
 
 #label{
-    font-size: 5vw;
+    font-size: 350%;
     font-family: 'Luminari', fantasy, 'Courier New', Courier, monospace;
     position: absolute;
     top: 10%;
@@ -62,7 +70,7 @@ body{
 }
 
 #backToMain{
-    font-size: 2vw;
+    font-size: 150%;
     position:absolute;
     top: 90%;
     left: 20%;
@@ -72,7 +80,7 @@ body{
 }
 
 #backToDifficulty{
-    font-size: 2vw;
+    font-size: 150%;
     position:absolute;
     top: 90%;
     left: 20%;
@@ -82,7 +90,7 @@ body{
 }
 
 #backToChar{
-    font-size: 2vw;
+    font-size: 150%;
     position:absolute;
     top: 90%;
     left: 20%;
@@ -92,7 +100,7 @@ body{
 }
 
 #howTo{
-    font-size: 2vw;
+    font-size: 150%;
     position:absolute;
     top: 90%;
     left: 80%;
@@ -102,7 +110,7 @@ body{
 }
 
 #easy{
-    font-size: 2vw;
+    font-size: 200%;
     position: absolute;
     top: 40%;
     left: 15%;
@@ -113,7 +121,7 @@ body{
 }
 
 #regular{
-    font-size: 2vw;
+    font-size: 200%;
     position: absolute;
     top: 40%;
     left: 38%;
@@ -124,7 +132,7 @@ body{
 }
 
 #hard{
-    font-size: 2vw;
+    font-size: 200%;
     position: absolute;
     top: 40%;
     left: 61%;
@@ -135,7 +143,7 @@ body{
 }
 
 #insane{
-    font-size: 2vw;
+    font-size: 200%;
     position: absolute;
     top: 40%;
     left: 84%;
@@ -146,7 +154,7 @@ body{
 }
 
 #story{
-    font-size: 2vw;
+    font-size: 200%;
     position: absolute;
     top: 90%;
     left: 70%;
@@ -177,62 +185,61 @@ button:hover{
 }
 
 #ren{
-    font-size: 2vw;
+    font-size: 150%;
     position: absolute;
     top: 40%;
     left: 15%;
     -ms-transform: (translate(-50%, -50%));
     transform: translate(-50%, -50%);
     width: 20%;
-    height: 75%;
+    height: auto;
 }
 
 #luka{
-    font-size: 2vw;
+    font-size: 150%;
     position: absolute;
     top: 40%;
     left: 38%;
     -ms-transform: (translate(-50%, -50%));
     transform: translate(-50%, -50%);
     width: 20%;
-    height: 75%;
+    height: auto;
 }
 
 #ollie{
-    font-size: 2vw;
+    font-size: 150%;
     position: absolute;
     top: 40%;
     left: 61%;
     -ms-transform: (translate(-50%, -50%));
     transform: translate(-50%, -50%);
     width: 20%;
-    height: 75%;
+    height: auto;
 }
 
 #caidyn{
-    font-size: 2vw;
+    font-size: 150%;
     position: absolute;
     top: 40%;
     left: 84%;
     -ms-transform: (translate(-50%, -50%));
     transform: translate(-50%, -50%);
     width: 20%;
-    height: 75%;
+    height: auto;
 }
 
 #enemyIcon{
-    font-size: 2vw;
     position: absolute;
     top: 60%;
     left: 79%;
     -ms-transform: (translate(-50%, -50%));
     transform: translate(-50%, -50%);
     width: 30%;
-    height: 75%;
+    height: auto;
 }
 
 #confirmChar{
-    font-size: 2vw;
+    font-size: 150%;
     position: absolute;
     top: 90%;
     left: 70%;
@@ -242,7 +249,7 @@ button:hover{
 }
 
 #nextButton{
-    font-size: 2vw;
+    font-size: 150%;
     position: absolute;
     top: 90%;
     left: 30%;
@@ -253,8 +260,8 @@ button:hover{
 
 #display{
     position: absolute;
-    width: 25vw;
-    height: 25vw;
+    width: 25%;
+    height: auto;
     top: 30%;
     left: 50%;
     -ms-transform: (translate(-50%, -50%));
@@ -265,7 +272,7 @@ button:hover{
     position: absolute;
     color: #311255;
     font-family: 'Luminari', fantasy, 'Courier New', Courier, monospace;
-    font-size: 4vh;
+    font-size: 200%;
     left: 50%;
     top: 55%;
     -ms-transform: (translate(-50%, -50%));
@@ -275,7 +282,7 @@ button:hover{
 
 .ability{
     font-family: 'Luminari', fantasy, 'Courier New', Courier, monospace;
-    font-size: 3vh;
+    font-size: 150%;
     background-color: #c5a8e7a5;
     border:5px solid #311255;
     padding: 0.5%;
@@ -305,16 +312,46 @@ button:hover{
 
 #mapIcon{
     position: absolute;
-    height: 11vw;
-    width: 11vw;
+    width: 11%;
+    height: auto;
 }
 
 #eventTitle{
-    font-size: 5vw;
+    font-size: 400%;
     font-family: 'Luminari', fantasy, 'Courier New', Courier, monospace;
     position: absolute;
     top: 10%;
     left: 50%;
     -ms-transform: (translate(-50%, -50%));
     transform: translate(-50%, -50%);
+}
+
+#enemyBattle{
+    position: absolute;
+    height: auto;
+    width: 25%;
+    top: 46%;
+    left: 63%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%,-50%);
+}
+
+#renBattle{
+    position: absolute;
+    height: auto;
+    width: 17%;
+    top: 70%;
+    left: 73%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%,-50%);
+}
+
+#lukaBattle{
+    position: absolute;
+    height: auto;
+    width: 17%;
+    top: 70%;
+    left: 84%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%,-50%);
 }
