@@ -79,6 +79,16 @@ body{
     width: 30%;
 }
 
+#backFromInfo{
+    font-size: 150%;
+    position:absolute;
+    top: 90%;
+    left: 20%;
+    -ms-transform: (translate(-50%, -50%));
+    transform: translate(-50%, -50%);
+    width: 30%;
+}
+
 #backToDifficulty{
     font-size: 150%;
     position:absolute;

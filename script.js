@@ -3,6 +3,7 @@ var bgImage = document.getElementById("bckgroundImg");
 var infoButton = document.getElementById("info");
 var startButton = document.getElementById("start");
 var backToMainButton = document.getElementById("backToMain");
+var backFromInfo = document.getElementById("backFromInfo")
 var backToDifficultyButton = document.getElementById("backToDifficulty");
 var backToCharButton = document.getElementById("backToChar");
 var confirmCharButton = document.getElementById("confirmChar");
@@ -35,6 +36,17 @@ var ollieBattle = document.getElementById("ollieBattle");
 var caidynBattle = document.getElementById("caidynBattle");
 var attackButton = document.getElementById("attackButton");
 var specialButton = document.getElementById("specialButton");
+
+//Screens
+var startScr = document.getElementById("startScreen");
+var infoScr = document.getElementById("infoScreen");
+var diffScr = document.getElementById("diffSelect");
+var charScr = document.getElementById("charSelect");
+var charInfoScr = document.getElementById("charInfo");
+var mapScr = document.getElementById("mapScreen");
+var eventScr = document.getElementById("eventDesc");
+var battleScr = document.getElementById("battleScreen");
+
 let charName = "N/A";
 let difficulty = "N/A";
 let eventType = "N/A";
@@ -169,24 +181,34 @@ const insane = [
 ]
 
 infoButton.addEventListener("click", function() {
-    hideStart();
-    showInfo();
+    bgImage.src = "Backgrounds/notebookScreen.png";
+    startScr.hidden = true;
+    infoScr.hidden = false;
 });
 
 backToMainButton.addEventListener("click", function(){
-    showStart();
-    hideInfoDiff();
+    bgImage.src = "Backgrounds/startScreen.png";
+    startScr.hidden = false;
+    diffScr.hidden = true;
+})
+
+backFromInfo.addEventListener("click", function(){
+    bgImage.src = "Backgrounds/startScreen.png";
+    startScr.hidden = false;
+    infoScr.hidden = true;
 })
 
 startButton.addEventListener("click", function(){
-    showDiff();
-    //showBattle();
-    hideStart();
+    bgImage.src = "Backgrounds/notebookScreen.png";
+    startScr.hidden = true;
+    diffScr.hidden = false;
 })
 
 easyButton.addEventListener("click", function(){
-    showChar();
-    hideDiff();
+    bgImage.src = "Backgrounds/secondNotebookScreen.png";
+    charScr.hidden = false;
+    diffScr.hidden = true;
+
     //Set difficulty
     difficulty = "Easy";
     //Set negative event ratio
@@ -206,8 +228,9 @@ easyButton.addEventListener("click", function(){
 })
 
 regularButton.addEventListener("click", function(){
-    showChar();
-    hideDiff();
+    bgImage.src = "Backgrounds/secondNotebookScreen.png";
+    charScr.hidden = false;
+    diffScr.hidden = true;
     //Set difficulty
     difficulty = "Regular";
     //Set negative event ratio
@@ -227,8 +250,9 @@ regularButton.addEventListener("click", function(){
 })
 
 hardButton.addEventListener("click", function(){
-    showChar();
-    hideDiff();
+    bgImage.src = "Backgrounds/secondNotebookScreen.png";
+    charScr.hidden = false;
+    diffScr.hidden = true;
     //Set difficulty
     difficulty = "Hard";
     //Set negative event ratio
@@ -247,8 +271,9 @@ hardButton.addEventListener("click", function(){
 })
 
 insaneButton.addEventListener("click", function(){
-    showChar();
-    hideDiff();
+    bgImage.src = "Backgrounds/secondNotebookScreen.png";
+    charScr.hidden = false;
+    diffScr.hidden = true;
     //Set difficulty
     difficulty = "Insane";
     //Set negative event ratio
@@ -267,15 +292,17 @@ insaneButton.addEventListener("click", function(){
 })
 
 backToDifficultyButton.addEventListener("click", function(){
-    showDiff();
-    hideChar();
+    bgImage.src = "Backgrounds/notebookScreen.png";
+    diffScr.hidden = false;
+    charScr.hidden = true;
 
 })
 
 renButton.addEventListener("click", function(){
     //Change screen
-    showCharConfirm();
-    hideChar();
+    bgImage.src = "Backgrounds/thirdNotebookScreen.png";
+    charInfoScr.hidden = false;
+    charScr.hidden = true;
     //Set character & Display aspects
     charName = "Ren";
     display.src = "Sprites/Ren/renSelect.png";
@@ -286,8 +313,9 @@ renButton.addEventListener("click", function(){
 
 lukaButton.addEventListener("click", function(){
     //Change screen
-    showCharConfirm();
-    hideChar();
+    bgImage.src = "Backgrounds/thirdNotebookScreen.png";
+    charInfoScr.hidden = false;
+    charScr.hidden = true;
     //Set character & Display aspects
     charName = "Luka";
     display.src = "Sprites/Luka/lukaSelect.png";
@@ -297,9 +325,9 @@ lukaButton.addEventListener("click", function(){
 })
 
 ollieButton.addEventListener("click", function(){
-    //Change screen
-    showCharConfirm();
-    hideChar();
+    bgImage.src = "Backgrounds/thirdNotebookScreen.png";
+    charInfoScr.hidden = false;
+    charScr.hidden = true;
     //Set character & Display aspects
     charName = "Ollie";
     display.src = "Sprites/Ollie/ollieSelect.png";
@@ -309,9 +337,9 @@ ollieButton.addEventListener("click", function(){
 })
 
 caidynButton.addEventListener("click", function(){
-    //Change screen
-    showCharConfirm();
-    hideChar();
+    bgImage.src = "Backgrounds/thirdNotebookScreen.png";
+    charInfoScr.hidden = false;
+    charScr.hidden = true;
     //Set character & Display aspects
     charName = "Caidyn";
     display.src = "Sprites/Caidyn/caidynSelect.png";
@@ -322,121 +350,13 @@ caidynButton.addEventListener("click", function(){
 
 backToChar.addEventListener("click", function(){
     //Change screen
-    showChar();
-    hideCharConfirm();
+    bgImage.src = "Backgrounds/secondNotebookScreen.png";
+    charScr.hidden = false;
+    charInfoScr.hidden = true;
 
 })
 
 confirmCharButton.addEventListener("click", function(){
-    showMap();
-    hideCharConfirm();
-})
-
-moveButton.addEventListener("click", function(){
-    //Moves player position
-    movePosition();
-    //Decides which event happens
-    decideEvent();
-
-    //Moves to event screen
-    hideMap();
-    showEventDesc();
-})
-
-nextButton.addEventListener("click", function(){
-    //Changes screen
-    hideEventDesc();
-    processBattle();
-    showMap();
-})
-
-function showCharConfirm(){
-    bgImage.src = "Backgrounds/thirdNotebookScreen.png";
-    display.hidden = false
-    backToCharButton.hidden = false
-    confirmCharButton.hidden = false
-    attackDesc.hidden = false
-    specialDesc.hidden = false
-    charConfirmHead.hidden = false
-}
-
-function hideCharConfirm(){
-    display.hidden = true
-    backToCharButton.hidden = true
-    confirmCharButton.hidden = true
-    attackDesc.hidden = true
-    specialDesc.hidden = true
-    charConfirmHead.hidden = true
-}
-
-function showInfo(){
-    bgImage.src = "Backgrounds/notebookScreen.png";
-    infoText.hidden = false
-    infoLabel.hidden = false
-    backToMainButton.hidden = false
-    howToButton.hidden = false
-}
-
-function hideStart(){
-    infoButton.hidden = true
-    startButton.hidden = true
-}
-
-function showStart(){
-    bgImage.src = "Backgrounds/startScreen.png";
-    infoButton.hidden = false
-    startButton.hidden = false
-}
-
-function hideInfoDiff(){
-    infoText.hidden = true
-    infoLabel.hidden = true
-    backToMainButton.hidden = true
-    howToButton.hidden = true
-    easyButton.hidden = true
-    regularButton.hidden = true
-    hardButton.hidden = true
-    insaneButton.hidden = true
-    storyButton.hidden = true
-}
-
-function showDiff(){
-    bgImage.src = "Backgrounds/notebookScreen.png";
-    backToMainButton.hidden = false
-    easyButton.hidden = false
-    regularButton.hidden = false
-    hardButton.hidden = false
-    insaneButton.hidden = false
-    storyButton.hidden = false
-}
-
-function hideDiff(){
-    backToMainButton.hidden = true
-    easyButton.hidden = true
-    regularButton.hidden = true
-    hardButton.hidden = true
-    insaneButton.hidden = true
-    storyButton.hidden = true
-}
-
-function showChar(){
-    bgImage.src = "Backgrounds/secondNotebookScreen.png";
-    backToDifficultyButton.hidden = false
-    renButton.hidden = false
-    lukaButton.hidden = false
-    ollieButton.hidden = false
-    caidynButton.hidden = false
-}
-
-function hideChar(){
-    backToDifficultyButton.hidden = true
-    renButton.hidden = true
-    lukaButton.hidden = true
-    ollieButton.hidden = true
-    caidynButton.hidden = true
-}
-
-function showMap(){
     if (difficulty.localeCompare("Easy") == 0){
         bgImage.src = "Backgrounds/easyMap.png";
     }
@@ -449,10 +369,40 @@ function showMap(){
     else if (difficulty.localeCompare("Insane") == 0){
         bgImage.src = "Backgrounds/insaneMap.png";
     }
+    mapScr.hidden = false;
+    charInfoScr.hidden = true;
+})
 
-    moveButton.hidden = false;
-    mapIcon.hidden = false;
-}
+moveButton.addEventListener("click", function(){
+    bgImage.src = "Backgrounds/grayScreen.png";
+    mapScr.hidden = true;
+    //Moves player position
+    movePosition();
+    //Decides which event happens
+    decideEvent();
+
+    //Moves to event screen
+    eventScr.hidden = false;
+})
+
+nextButton.addEventListener("click", function(){
+    //Changes screen
+    if (difficulty.localeCompare("Easy") == 0){
+        bgImage.src = "Backgrounds/easyMap.png";
+    }
+    else if (difficulty.localeCompare("Regular") == 0){
+        bgImage.src = "Backgrounds/regularMap.png";
+    }
+    else if (difficulty.localeCompare("Hard") == 0){
+        bgImage.src = "Backgrounds/hardMap.png";
+    }
+    else if (difficulty.localeCompare("Insane") == 0){
+        bgImage.src = "Backgrounds/insaneMap.png";
+    }
+    eventScr.hidden = true;
+    processBattle();
+    mapScr.hidden = false;
+})
 
 function showBattle(){
     //Changing background
@@ -483,31 +433,6 @@ function showBattle(){
     attackButton.hidden = false;
     specialButton.hidden = false;
 
-}
-
-function hideMap(){
-    //Hides the move button and the map icon
-    moveButton.hidden = true;
-    mapIcon.hidden = true;
-}
-
-function showEventDesc(){
-    //Changes background to plain gray screen
-    bgImage.src = "Backgrounds/grayScreen.png";
-
-    //Unhides event title
-    eventTitle.hidden = false;
-    enemyIcon.hidden = false;
-    nextButton.hidden = false;
-    eventDetails.hidden = false;
-}
-
-function hideEventDesc(){
-    //Hides event description items
-    eventTitle.hidden = true;
-    enemyIcon.hidden = true;
-    nextButton.hidden = true;
-    eventDetails.hidden = true;
 }
 
 function movePosition(){

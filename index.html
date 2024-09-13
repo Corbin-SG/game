@@ -13,75 +13,91 @@
 
   <!-- Overall container for game-->
   <div>
+    <div id = "startScreen">
+      <!-- Start button-->
+      <button class ="button" id="start">START</button>
+      <!-- Information button-->
+      <button class ="button" id="info">INFORMATION</button>
+    </div>
 
-    <!-- Start button-->
-    <button class ="button" id="start">START</button>
-    <!-- Information button-->
-    <button class ="button" id="info">INFORMATION</button>
+    <div id = "infoScreen"hidden>
+      <!-- Information page content-->
+      <h1 id="label">INFORMATION</h1>
+      <p id="information">
+        <strong>2024/04/29:</strong> This website is currently in the process of being developed and has minimal functionality. If you happen to
+      come across it then feel free to mess around, but do not expect a finished project. Also feel free to revist the site to check progress!
+      </p>
+      <button class="button" id="backFromInfo">BACK</button>
+      <button class="button" id="howTo">HOW TO PLAY (INACTIVE)</button>
+    </div>
 
-    <!-- Information page content-->
-    <h1 id="label" hidden>INFORMATION</h1>
-    <p id="information" hidden>
-      <strong>2024/04/29:</strong> This website is currently in the process of being developed and has minimal functionality. If you happen to
-    come across it then feel free to mess around, but do not expect a finished project. Also feel free to revist the site to check progress!
-    </p>
-    <button class="button" id="backToMain" hidden>BACK</button>
-    <button class="button" id="howTo" hidden>HOW TO PLAY (INACTIVE)</button>
-
-    <!-- Start page content-->
-    <button class="button" id="easy"hidden>EASY</button>
-    <button class="button" id="regular"hidden>REGULAR</button>
-    <button class="button" id="hard"hidden>HARD</button>
-    <button class="button" id="insane"hidden>INSANE</button>
-    <button class="button" id="story"hidden>STORY (INACTIVE)</button>
+    <div id = "diffSelect"hidden>
+      <!-- Start page content-->
+      <button class="button" id="easy">EASY</button>
+      <button class="button" id="regular">REGULAR</button>
+      <button class="button" id="hard">HARD</button>
+      <button class="button" id="insane">INSANE</button>
+      <button class="button" id="story">STORY (INACTIVE)</button>
+      <button class="button" id="backToMain">BACK</button>
+    </div> 
     
-    <!-- Character selection content-->
-    <button class="button" id="backToDifficulty"hidden>BACK</button>
-    <button class="button" id="ren"hidden>
-      <img src="Sprites/Ren/renSelect.png" style="width: 100%; height: auto;">
-      <h3><strong>REN:</strong> Attack Type</h3>
-    </button>
-    <button class="button" id="luka"hidden>
-      <img src="Sprites/Luka/lukaSelect.png" style="width: 100%; height: auto;">
-      <h3><strong>LUKA:</strong> Support Type</h3>
-    </button>
-    <button class="button" id="ollie"hidden>
-      <img src="Sprites/Ollie/ollieSelect.png" style="width: 100%; height: auto;">
-      <h3><strong>OLLIE:</strong> Attack Type</h3>
-    </button>
-    <button class="button" id="caidyn"hidden>
-      <img src="Sprites/Caidyn/caidynSelect.png" style="width: 100%; height: auto;">
-      <h3><strong>CAIDYN:</strong> Heal Type</h3>
-    </button>
+    <div id="charSelect"hidden>
+      <!-- Character selection content-->
+      <button class="button" id="backToDifficulty">BACK</button>
+      <button class="button" id="ren">
+        <img src="Sprites/Ren/renSelect.png" style="width: 100%; height: auto;">
+        <h3><strong>REN:</strong> Attack Type</h3>
+      </button>
+      <button class="button" id="luka">
+        <img src="Sprites/Luka/lukaSelect.png" style="width: 100%; height: auto;">
+        <h3><strong>LUKA:</strong> Support Type</h3>
+      </button>
+      <button class="button" id="ollie">
+        <img src="Sprites/Ollie/ollieSelect.png" style="width: 100%; height: auto;">
+        <h3><strong>OLLIE:</strong> Attack Type</h3>
+      </button>
+      <button class="button" id="caidyn">
+        <img src="Sprites/Caidyn/caidynSelect.png" style="width: 100%; height: auto;">
+        <h3><strong>CAIDYN:</strong> Heal Type</h3>
+      </button>
+    </div>
 
-    <!-- Character confirmation content-->
-    <button class="button" id="backToChar"hidden>BACK</button>
-    <button class="button" id="confirmChar"hidden>CONFIRM CHARACTER</button>
-    <img id = "display"src="Sprites/Ren/renSelect.png" hidden>
-    <h2 id="abilityHead"hidden>SELECTED CHARACTER'S ABILITIES</h2>
-    <h2 class = "ability" id="attack"hidden>ATTACK ( Q ): </h2>
-    <h2 class = "ability" id="special"hidden>SPECIAL ( E ):</h2>
+    <div id="charInfo"hidden>
+      <!-- Character confirmation content-->
+      <button class="button" id="backToChar">BACK</button>
+      <button class="button" id="confirmChar">CONFIRM CHARACTER</button>
+      <img id = "display"src="Sprites/Ren/renSelect.png">
+      <h2 id="abilityHead"hidden>SELECTED CHARACTER'S ABILITIES</h2>
+      <h2 class = "ability" id="attack">ATTACK ( Q ): </h2>
+      <h2 class = "ability" id="special">SPECIAL ( E ):</h2>
+    </div>
 
-    <!-- Map icon-->
-    <img id = "mapIcon" src="Sprites/Ren/renSelect.png"hidden>
-    <button class="button" id="iconLabel"hidden>MOVE SPOT</button>
+    <div id="mapScreen"hidden>
+      <!-- Map icon-->
+      <img id = "mapIcon" src="Sprites/Ren/renSelect.png">
+      <button class="button" id="iconLabel">MOVE SPOT</button>
+    </div>
 
-    <!-- Event Description-->
-    <h1 id="eventTitle" hidden>N/A</h1>
-    <img id = "enemyIcon" src = "Sprites/Slime/slimeStandby.png"hidden>
-    <button class="buttonTwo" id="nextButton"hidden>NEXT</button>
-    <h2 id = "eventDetails"hidden></h2>
+    <div id="eventDesc"hidden>
+      <!-- Event Description-->
+      <h1 id="eventTitle">N/A</h1>
+      <img id = "enemyIcon" src = "Sprites/Slime/slimeStandby.png">
+      <button class="buttonTwo" id="nextButton">NEXT</button>
+      <h2 id = "eventDetails"></h2>
+    </div>
 
+    <div id="battleScreen"hidden>
     <!-- Battle Screen-->
-     <img id="enemyBattle" src="Sprites/Crab/crabStandby.png"hidden>
-     <img id = "renBattle" src = "Sprites/Ren/renStandby.png"hidden>
-     <img id = "lukaBattle" src="Sprites/Luka/lukaStandby.png"hidden>
-     <img id = "ollieBattle" src="Sprites/Ollie/ollieStandby.png"hidden>
-     <img id = "caidynBattle" src="Sprites/Caidyn/caidynStandby.png"hidden>
-     <button class="button" id="attackButton"hidden>ATK</button>
-     <button class="button" id="specialButton"hidden>SPECIAL</button>
+     <img id="enemyBattle" src="Sprites/Crab/crabStandby.png">
+     <img id = "renBattle" src = "Sprites/Ren/renStandby.png">
+     <img id = "lukaBattle" src="Sprites/Luka/lukaStandby.png">
+     <img id = "ollieBattle" src="Sprites/Ollie/ollieStandby.png">
+     <img id = "caidynBattle" src="Sprites/Caidyn/caidynStandby.png">
+     <button class="button" id="attackButton">ATK</button>
+     <button class="button" id="specialButton">SPECIAL</button>
+    </div>
   </div>
-  </div>
+</div>
   <!-- Linking scripting file-->
   <script src="script.js"></script>
 </body>
